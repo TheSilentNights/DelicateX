@@ -1,0 +1,4 @@
+name: AdminToolsPack
+version: '${project.version}'
+main: com.thesilentnights.admintoolspack.AdminToolsPack
+api-version: '1.19'
