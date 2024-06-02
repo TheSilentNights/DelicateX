@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/AdminToolsPack.iml" filepath="$PROJECT_DIR$/.idea/AdminToolsPack.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/AdminToolsPack.iml" filepath="$PROJECT_DIR$/AdminToolsPack.iml" />
->>>>>>> f4effd3e038527229650b20fc88b0e471cfabb30
     </modules>
   </component>
 </project>

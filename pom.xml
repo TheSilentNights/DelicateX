@@ -27,8 +27,6 @@
           <target>${java.version}</target>
         </configuration>
       </plugin>
-<<<<<<< HEAD
-=======
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
@@ -37,7 +35,6 @@
                 <outputDirectory>C:\develop\ServerPack</outputDirectory>
             </configuration>
         </plugin>
->>>>>>> f4effd3e038527229650b20fc88b0e471cfabb30
 <!--      <plugin>-->
 <!--        <groupId>org.apache.maven.plugins</groupId>-->
 <!--        <artifactId>maven-shade-plugin</artifactId>-->

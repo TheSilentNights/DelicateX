@@ -2,30 +2,12 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Central Repository" />
-      <option name="url" value="https://repo.maven.apache.org/maven2" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="sonatype" />
       <option name="name" value="sonatype" />
       <option name="url" value="https://oss.sonatype.org/content/groups/public/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="spigotmc-repo" />
-      <option name="name" value="spigotmc-repo" />
-      <option name="url" value="https://hub.spigotmc.org/nexus/content/repositories/snapshots/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="central" />
-<<<<<<< HEAD
-=======
-      <option name="name" value="Central Repository" />
-      <option name="url" value="https://repo.maven.apache.org/maven2/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="central" />
->>>>>>> f4effd3e038527229650b20fc88b0e471cfabb30
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
@@ -35,15 +17,14 @@
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
     <remote-repository>
-<<<<<<< HEAD
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://maven.aliyun.com/repository/central" />
-=======
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="paper" />
       <option name="name" value="paper" />
       <option name="url" value="https://repo.papermc.io/repository/maven-public/" />
->>>>>>> f4effd3e038527229650b20fc88b0e471cfabb30
     </remote-repository>
   </component>
 </project>
