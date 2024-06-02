@@ -1,11 +1,15 @@
 package com.thesilentnights.admintoolspack;
 
+import com.thesilentnights.admintoolspack.commands.CalculateDistance;
+import com.thesilentnights.admintoolspack.events.IPlayerChatEvent;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public final class AdminToolsPack extends JavaPlugin {
-    private AdminToolsPack instance;
-    private FileConfiguration defaultConfig;
+    private static AdminToolsPack instance;
+    private static FileConfiguration defaultConfig;
 
     @Override
     public void onEnable() {
@@ -13,8 +17,12 @@ public final class AdminToolsPack extends JavaPlugin {
         if (!getDataFolder().exists()){
             saveDefaultConfig();
         }
-
+        instance = this;
         defaultConfig = getConfig();
+
+        //reg
+        Objects.requireNonNull(getCommand("distance")).setExecutor(new CalculateDistance());
+        getServer().getPluginManager().registerEvents(new IPlayerChatEvent(),this);
     }
 
     @Override
@@ -22,11 +30,11 @@ public final class AdminToolsPack extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public AdminToolsPack getInstance() {
+    public static AdminToolsPack getInstance() {
         return instance;
     }
 
-    public FileConfiguration getDefaultConfig() {
+    public static FileConfiguration getDefaultConfig() {
         return defaultConfig;
     }
 }

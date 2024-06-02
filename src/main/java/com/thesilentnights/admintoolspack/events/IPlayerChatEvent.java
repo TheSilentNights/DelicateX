@@ -11,9 +11,6 @@ import com.thesilentnights.admintoolspack.AdminToolsPack;
 public class IPlayerChatEvent implements Listener {
     @EventHandler
     public void PlayerChat(PlayerChannelEvent event){
-        if (AdminToolsPack ) {
-            
-        }
         event.getChannel().replace('&', ChatColor.COLOR_CHAR);
     }
 
