@@ -1,6 +1,6 @@
 package com.thesilentnights.admintoolspack;
 
-import com.thesilentnights.admintoolspack.commands.CalculateDistance;
+import com.thesilentnights.admintoolspack.commands.MainCommand;
 import com.thesilentnights.admintoolspack.events.IPlayerChatEvent;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -21,7 +21,7 @@ public final class AdminToolsPack extends JavaPlugin {
         defaultConfig = getConfig();
 
         //reg
-        Objects.requireNonNull(getCommand("distance")).setExecutor(new CalculateDistance());
+        Objects.requireNonNull(getCommand("admintoolspack")).setExecutor(new MainCommand());
         getServer().getPluginManager().registerEvents(new IPlayerChatEvent(),this);
     }
 

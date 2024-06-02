@@ -3,10 +3,7 @@ version: '${project.version}'
 main: com.thesilentnights.admintoolspack.AdminToolsPack
 api-version: '1.19'
 commands:
-  distance:
-<<<<<<< HEAD
-    usage: 请于第二目标点再次输入/distance以计算 (以当前玩家脚部方块的坐标为准)
+  adminToolsPack:
+    usage: none
     description: none
-=======
-    usage: 第一次使用记录当下坐标，第二次使用记录后计算距离
->>>>>>> f4effd3e038527229650b20fc88b0e471cfabb30
+
