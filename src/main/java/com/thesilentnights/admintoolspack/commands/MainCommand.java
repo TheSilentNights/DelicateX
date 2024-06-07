@@ -9,12 +9,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainCommand implements CommandExecutor {
-    private Map<String,ICommand> commandMap;
+    private final Map<String,ICommand> commandMap;
     public MainCommand() {
         commandMap = new HashMap<>();
     }
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         return commandMap.get(strings[0]).execute(commandSender,command,s,strings);
+    }
+
+    public void register(ICommand command){
+        commandMap.put(command.getCommandName(),command);
     }
 }

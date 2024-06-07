@@ -15,11 +15,8 @@ public class IPlayerChatEvent implements Listener {
     }
     @EventHandler
     public void PlayerChat(PlayerChannelEvent event){
-        event.getChannel().replace('&', ChatColor.COLOR_CHAR);
         if (isEnabled){
             event.getChannel().replace('&',ChatColor.COLOR_CHAR);
         }
     }
-
-    
 }

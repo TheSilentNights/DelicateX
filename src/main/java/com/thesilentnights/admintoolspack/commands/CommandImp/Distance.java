@@ -11,10 +11,10 @@ import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CalculateDistance extends ICommand {
+public class Distance extends ICommand {
     private final Map<String, Location> recordedLocation = new HashMap<>();
 
-    public CalculateDistance(String commandName) {
+    public Distance(String commandName) {
         super(commandName);
     }
 
@@ -30,7 +30,7 @@ public class CalculateDistance extends ICommand {
                 return true;
             }
             recordedLocation.put(player.getName(),player.getLocation().toBlockLocation());
-            return false;
+            MessageSender.sendMessage(new MessageToPlayer("再次输入以计算两点位置(以玩家所处坐标取整为准)",player));
         }
         return false;
     }
