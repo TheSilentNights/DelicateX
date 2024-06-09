@@ -1,21 +1,9 @@
 package com.thesilentnights.admintoolspack.commands;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
+import com.thesilentnights.admintoolspack.AdminToolsPack;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.TabCompleter;
 
-abstract public class ICommand {
+abstract public class ICommand implements CommandExecutor, TabCompleter {
 
-    public ICommand(String commandName) {
-        this.commandName = commandName;
-    }
-
-    private final String commandName;
-
-    //need imp
-    abstract public boolean execute(CommandSender commandSender,Command command,String s,String[] strings);
-
-
-    public String getCommandName(){
-        return this.commandName;
-    }
 }

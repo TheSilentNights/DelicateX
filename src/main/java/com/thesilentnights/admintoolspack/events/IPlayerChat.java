@@ -8,9 +8,9 @@ import org.bukkit.event.player.PlayerChannelEvent;
 import com.thesilentnights.admintoolspack.AdminToolsPack;
 
 
-public class IPlayerChatEvent implements Listener {
+public class IPlayerChat implements Listener {
     private Boolean isEnabled;
-    public IPlayerChatEvent() {
+    public IPlayerChat() {
         this.isEnabled = AdminToolsPack.getDefaultConfig().getBoolean("if-enable-chat_color");
     }
     @EventHandler
