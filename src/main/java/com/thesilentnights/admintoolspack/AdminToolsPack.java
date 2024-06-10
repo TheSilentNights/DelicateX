@@ -2,6 +2,7 @@ package com.thesilentnights.admintoolspack;
 
 import com.thesilentnights.admintoolspack.commands.CommandImp.Distance;
 import com.thesilentnights.admintoolspack.commands.CommandImp.Entity;
+import com.thesilentnights.admintoolspack.commands.CommandImp.ScheduledReboot;
 import com.thesilentnights.admintoolspack.commands.ICommand;
 import com.thesilentnights.admintoolspack.events.IPlayerChat;
 import com.thesilentnights.admintoolspack.events.IPlayerJoin;
@@ -15,7 +16,6 @@ import java.util.Objects;
 public final class AdminToolsPack extends JavaPlugin {
     private static AdminToolsPack instance;
     private static FileConfiguration defaultConfig;
-    public static final String COMMAND_HEAD = "ToolsPack-";
 
     @Override
     public void onEnable() {
@@ -29,6 +29,7 @@ public final class AdminToolsPack extends JavaPlugin {
         //reg command
         Objects.requireNonNull(getCommand(Distance.COMMAND_NAME)).setExecutor(new Distance());
         Objects.requireNonNull(getCommand(Entity.COMMAND_NAME)).setExecutor(new Entity());
+        Objects.requireNonNull(getCommand(ScheduledReboot.COMMAND_NAME)).setExecutor(new ScheduledReboot());
 
         //reg eventsListener
         getServer().getPluginManager().registerEvents(new IPlayerChat(), this);

@@ -2,8 +2,20 @@ name: AdminToolsPack
 version: '${project.version}'
 main: com.thesilentnights.admintoolspack.AdminToolsPack
 api-version: '1.19'
-commands:
-  adminToolsPack:
-    usage: none
-    description: none
 
+commands:
+  distance:
+    permission: op
+    description: none
+    usage: none
+  entity:
+    permission: op
+    description: none
+    usage: none
+  scheduledReboot:
+    permission: op
+    description: create a task that will shutdown the server in the future
+    usage: /scheduledreboot [time(seconds)] [if-broadcast]
+
+default-permission:
+  op
