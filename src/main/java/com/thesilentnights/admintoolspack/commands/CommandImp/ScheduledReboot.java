@@ -6,9 +6,8 @@ import com.thesilentnights.admintoolspack.utils.messageSender.MessageSender;
 import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToALL;
 import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToSender;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import com.thesilentnights.admintoolspack.utils.tick.TickTimer;
+import com.thesilentnights.admintoolspack.utils.task.tick.TickTimer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -44,6 +43,12 @@ public class ScheduledReboot extends ICommand {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
+        if (strings.length == 1) {
+            return List.of("[time]");
+        }
+        if (strings.length == 2) {
+            return List.of("true", "false");
+        }
         return List.of();
     }
 }

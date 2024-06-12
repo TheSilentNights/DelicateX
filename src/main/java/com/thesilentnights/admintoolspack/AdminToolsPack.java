@@ -3,14 +3,11 @@ package com.thesilentnights.admintoolspack;
 import com.thesilentnights.admintoolspack.commands.CommandImp.Distance;
 import com.thesilentnights.admintoolspack.commands.CommandImp.Entity;
 import com.thesilentnights.admintoolspack.commands.CommandImp.ScheduledReboot;
-import com.thesilentnights.admintoolspack.commands.ICommand;
-import com.thesilentnights.admintoolspack.events.IPlayerChat;
+import com.thesilentnights.admintoolspack.chat.events.IPlayerChat;
 import com.thesilentnights.admintoolspack.events.IPlayerJoin;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public final class AdminToolsPack extends JavaPlugin {
@@ -39,6 +36,7 @@ public final class AdminToolsPack extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+
     }
 
     public static AdminToolsPack getInstance() {

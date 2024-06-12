@@ -1,4 +1,4 @@
-package com.thesilentnights.admintoolspack.utils.tick;
+package com.thesilentnights.admintoolspack.utils.task.tick;
 
 import com.thesilentnights.admintoolspack.AdminToolsPack;
 import org.bukkit.scheduler.BukkitRunnable;

@@ -22,7 +22,7 @@ public class Entity extends ICommand {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if (commandSender instanceof Player) {
             Player sender = (Player) commandSender;
-            if (strings.length != 3) {
+            if (strings.length != 3 && strings.length != 4) {
                 MessageSender.sendMessage(new MessageToSender("输入坐标范围错误", sender));
                 return false;
             }
@@ -36,10 +36,14 @@ public class Entity extends ICommand {
             Collection<org.bukkit.entity.Entity> nearbyEntities = blockLocation.getNearbyEntities(x, y, z);
 
             Map<String, Integer> map = EntityCounter.execute(nearbyEntities);
+            if (strings.length == 3) {
+                map.forEach((k, v) -> {
+                    MessageSender.sendMessage(new MessageToSender(k + " : " + v.toString(), sender));
+                });
+            } else {
+                MessageSender.sendMessage(new MessageToSender(map.get(strings[3]).toString(), sender));
+            }
 
-            map.forEach((k, v) -> {
-                MessageSender.sendMessage(new MessageToSender(k + " : " + v.toString(), sender));
-            });
             return true;
         }
         return false;
