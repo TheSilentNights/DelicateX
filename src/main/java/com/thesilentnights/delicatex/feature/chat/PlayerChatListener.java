@@ -1,6 +1,7 @@
 package com.thesilentnights.delicatex.feature.chat;
 
 import com.thesilentnights.delicatex.config.Config;
+import com.thesilentnights.delicatex.utils.color.ChatColorFormatter;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToALL;
 import org.bukkit.ChatColor;
@@ -20,7 +21,7 @@ public class PlayerChatListener implements Listener {
     public void PlayerChat(PlayerChatEvent event) {
         event.setCancelled(true);
         if (isEnabled) {
-            String content = event.getMessage().replace('&', ChatColor.COLOR_CHAR);
+            String content = ChatColorFormatter.replace(event.getMessage());
             MessageSender.sendMessage(new MessageToALL(content));
         }
     }

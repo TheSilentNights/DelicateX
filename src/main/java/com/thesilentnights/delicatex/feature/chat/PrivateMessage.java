@@ -1,0 +1,45 @@
+package com.thesilentnights.delicatex.feature.chat;
+
+import com.thesilentnights.delicatex.DelicateX;
+import com.thesilentnights.delicatex.feature.model.ICommand;
+import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.ChatMessage;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.PrivateChatMessage;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrivateMessage implements ICommand {
+    public static final String COMMAND_NAME = "PrivateMsg";
+
+
+    @Override
+    public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
+            boolean ifHas = DelicateX.getInstance().getServer().getOnlinePlayers().stream().anyMatch(player -> player.getName().equals(strings[0]));
+            if (ifHas){
+                MessageSender.sendMessage(new PrivateChatMessage(DelicateX.getInstance().getServer().getPlayer(strings[0]),commandSender,strings[0]));
+            }else{
+                MessageSender.sendMessage(new MessageToSender("玩家不在线或不存在",commandSender));
+            }
+        return true;
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
+        if (strings.length == 0){
+            List<String> list = new ArrayList<>();
+            DelicateX.getInstance().getServer().getOnlinePlayers().forEach(player -> list.add(player.getName()));
+            return list;
+        }
+        if (strings.length == 1){
+            return List.of("[message]");
+        }
+        return List.of();
+    }
+}

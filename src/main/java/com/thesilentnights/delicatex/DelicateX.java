@@ -2,6 +2,7 @@ package com.thesilentnights.delicatex;
 
 import com.thesilentnights.delicatex.config.Config;
 import com.thesilentnights.delicatex.feature.chat.PlayerChatListener;
+import com.thesilentnights.delicatex.feature.chat.PrivateMessage;
 import com.thesilentnights.delicatex.feature.distance.Distance;
 import com.thesilentnights.delicatex.feature.entity.EntityClear;
 import com.thesilentnights.delicatex.feature.entity.EntityCounter;
@@ -29,6 +30,7 @@ public final class DelicateX extends JavaPlugin {
         Objects.requireNonNull(getCommand(EntityCounter.COMMAND_NAME)).setExecutor(new EntityCounter());
         Objects.requireNonNull(getCommand(ScheduledReboot.COMMAND_NAME)).setExecutor(new ScheduledReboot());
         Objects.requireNonNull(getCommand(EntityClear.COMMAND_NAME)).setExecutor(new EntityClear());
+        Objects.requireNonNull(getCommand(PrivateMessage.COMMAND_NAME)).setExecutor(new PrivateMessage());
         //reg eventsListener
         getServer().getPluginManager().registerEvents(new PlayerChatListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);

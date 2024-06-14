@@ -14,6 +14,6 @@ public class ChatMessage extends Message {
 
     @Override
     protected void send() {
-        DelicateX.getInstance().getServer().getOnlinePlayers().forEach(player -> player.sendMessage("["+from+"]"+body));
+        DelicateX.getInstance().getServer().getOnlinePlayers().forEach(player -> player.sendMessage("["+from.getName()+"]"+body));
     }
 }

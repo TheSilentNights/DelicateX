@@ -4,6 +4,10 @@ main: com.thesilentnights.delicatex.DelicateX
 api-version: '1.19'
 
 commands:
+  privateMsg:
+    permission: player
+    description: none
+    usage: none
   distance:
     permission: op
     description: none
