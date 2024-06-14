@@ -1,4 +1,4 @@
-name: AdminToolsPack
+name: DelicateX
 version: '${project.version}'
 main: com.thesilentnights.delicatex.DelicateX
 api-version: '1.19'

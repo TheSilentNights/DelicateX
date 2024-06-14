@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.thesilentnights</groupId>
-    <artifactId>AdminToolsPack</artifactId>
+    <artifactId>DelicateX</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>AdminToolsPack</name>
+    <name>DelicateX</name>
 
     <properties>
         <java.version>17</java.version>
