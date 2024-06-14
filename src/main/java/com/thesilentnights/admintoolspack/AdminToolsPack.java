@@ -1,18 +1,18 @@
 package com.thesilentnights.admintoolspack;
 
+import com.thesilentnights.admintoolspack.config.Config;
+import com.thesilentnights.admintoolspack.feature.chat.PlayerChatListener;
 import com.thesilentnights.admintoolspack.feature.distance.Distance;
 import com.thesilentnights.admintoolspack.feature.entity.EntityClear;
 import com.thesilentnights.admintoolspack.feature.entity.EntityCounter;
 import com.thesilentnights.admintoolspack.feature.reboot.ScheduledReboot;
-import com.thesilentnights.admintoolspack.feature.chat.PlayerChatListener;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
 
 public final class AdminToolsPack extends JavaPlugin {
     private static AdminToolsPack instance;
-    private static FileConfiguration defaultConfig;
 
     @Override
     public void onEnable() {
@@ -20,8 +20,8 @@ public final class AdminToolsPack extends JavaPlugin {
         if (!getDataFolder().exists()) {
             saveDefaultConfig();
         }
+        new Config((YamlConfiguration) getConfig(), "config");
         instance = this;
-        defaultConfig = getConfig();
 
         //reg command
         Objects.requireNonNull(getCommand(Distance.COMMAND_NAME)).setExecutor(new Distance());
@@ -36,13 +36,11 @@ public final class AdminToolsPack extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
 
+        Config.saveConfigs();
     }
 
     public static AdminToolsPack getInstance() {
         return instance;
     }
 
-    public static FileConfiguration getDefaultConfig() {
-        return defaultConfig;
-    }
 }
