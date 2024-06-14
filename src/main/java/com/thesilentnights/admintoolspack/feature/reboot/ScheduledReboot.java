@@ -1,7 +1,7 @@
-package com.thesilentnights.admintoolspack.commands.CommandImp;
+package com.thesilentnights.admintoolspack.feature.reboot;
 
 import com.thesilentnights.admintoolspack.AdminToolsPack;
-import com.thesilentnights.admintoolspack.commands.ICommand;
+import com.thesilentnights.admintoolspack.feature.model.ICommand;
 import com.thesilentnights.admintoolspack.utils.messageSender.MessageSender;
 import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToALL;
 import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToSender;
@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ScheduledReboot extends ICommand {
+public class ScheduledReboot implements ICommand {
     public static final String COMMAND_NAME = "ScheduledReboot";
     private Long scheduledTime;
     private boolean ifBroadcast;

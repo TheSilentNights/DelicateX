@@ -1,7 +1,6 @@
-package com.thesilentnights.admintoolspack.commands.CommandImp;
+package com.thesilentnights.admintoolspack.feature.entity;
 
-import com.thesilentnights.admintoolspack.commands.ICommand;
-import com.thesilentnights.admintoolspack.utils.entity.EntityCounter;
+import com.thesilentnights.admintoolspack.feature.model.ICommand;
 import com.thesilentnights.admintoolspack.utils.messageSender.MessageSender;
 import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToSender;
 import org.bukkit.Location;
@@ -15,8 +14,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-public class Entity extends ICommand {
-    public static final String COMMAND_NAME = "Entity";
+public class EntityCounter implements ICommand {
+    public static final String COMMAND_NAME = "EntityCounter";
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
@@ -35,7 +34,7 @@ public class Entity extends ICommand {
             Location blockLocation = sender.getLocation().toBlockLocation();
             Collection<org.bukkit.entity.Entity> nearbyEntities = blockLocation.getNearbyEntities(x, y, z);
 
-            Map<String, Integer> map = EntityCounter.execute(nearbyEntities);
+            Map<String, Integer> map = com.thesilentnights.admintoolspack.utils.entity.EntityCounter.execute(nearbyEntities);
             if (strings.length == 3) {
                 map.forEach((k, v) -> {
                     MessageSender.sendMessage(new MessageToSender(k + " : " + v.toString(), sender));

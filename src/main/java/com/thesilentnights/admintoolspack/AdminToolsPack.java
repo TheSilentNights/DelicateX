@@ -1,10 +1,10 @@
 package com.thesilentnights.admintoolspack;
 
-import com.thesilentnights.admintoolspack.commands.CommandImp.Distance;
-import com.thesilentnights.admintoolspack.commands.CommandImp.Entity;
-import com.thesilentnights.admintoolspack.commands.CommandImp.ScheduledReboot;
-import com.thesilentnights.admintoolspack.chat.events.IPlayerChat;
-import com.thesilentnights.admintoolspack.events.IPlayerJoin;
+import com.thesilentnights.admintoolspack.feature.distance.Distance;
+import com.thesilentnights.admintoolspack.feature.entity.EntityClear;
+import com.thesilentnights.admintoolspack.feature.entity.EntityCounter;
+import com.thesilentnights.admintoolspack.feature.reboot.ScheduledReboot;
+import com.thesilentnights.admintoolspack.feature.chat.PlayerChatListener;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -25,12 +25,11 @@ public final class AdminToolsPack extends JavaPlugin {
 
         //reg command
         Objects.requireNonNull(getCommand(Distance.COMMAND_NAME)).setExecutor(new Distance());
-        Objects.requireNonNull(getCommand(Entity.COMMAND_NAME)).setExecutor(new Entity());
+        Objects.requireNonNull(getCommand(EntityCounter.COMMAND_NAME)).setExecutor(new EntityCounter());
         Objects.requireNonNull(getCommand(ScheduledReboot.COMMAND_NAME)).setExecutor(new ScheduledReboot());
-
+        Objects.requireNonNull(getCommand(EntityClear.COMMAND_NAME)).setExecutor(new EntityClear());
         //reg eventsListener
-        getServer().getPluginManager().registerEvents(new IPlayerChat(), this);
-        getServer().getPluginManager().registerEvents(new IPlayerJoin(), this);
+        getServer().getPluginManager().registerEvents(new PlayerChatListener(), this);
     }
 
     @Override

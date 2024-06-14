@@ -1,6 +1,6 @@
-package com.thesilentnights.admintoolspack.commands.CommandImp;
+package com.thesilentnights.admintoolspack.feature.distance;
 
-import com.thesilentnights.admintoolspack.commands.ICommand;
+import com.thesilentnights.admintoolspack.feature.model.ICommand;
 import com.thesilentnights.admintoolspack.utils.messageSender.MessageSender;
 import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToSender;
 import org.bukkit.Location;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Distance extends ICommand {
+public class Distance implements ICommand {
     private final Map<String, Location> recordedLocation = new HashMap<>();
     public static final String COMMAND_NAME = "Distance";
 

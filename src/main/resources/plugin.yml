@@ -8,7 +8,7 @@ commands:
     permission: op
     description: none
     usage: none
-  entity:
+  entityCounter:
     permission: op
     description: none
     usage: none
@@ -16,6 +16,9 @@ commands:
     permission: op
     description: create a task that will shutdown the server in the future
     usage: /scheduledreboot [time(seconds)] [if-broadcast]
-
+  entityClear:
+    permission: op
+    description: none
+    usage: none
 default-permission:
   op
