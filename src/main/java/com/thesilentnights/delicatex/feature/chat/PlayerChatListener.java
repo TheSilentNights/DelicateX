@@ -1,12 +1,11 @@
-package com.thesilentnights.admintoolspack.feature.chat;
+package com.thesilentnights.delicatex.feature.chat;
 
-import com.thesilentnights.admintoolspack.config.Config;
-import com.thesilentnights.admintoolspack.utils.messageSender.MessageSender;
-import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToALL;
+import com.thesilentnights.delicatex.config.Config;
+import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToALL;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerChannelEvent;
 import org.bukkit.event.player.PlayerChatEvent;
 
 

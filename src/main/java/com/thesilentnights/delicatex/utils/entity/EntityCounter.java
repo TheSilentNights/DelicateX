@@ -1,4 +1,4 @@
-package com.thesilentnights.admintoolspack.utils.entity;
+package com.thesilentnights.delicatex.utils.entity;
 
 import java.util.Collection;
 import java.util.HashMap;

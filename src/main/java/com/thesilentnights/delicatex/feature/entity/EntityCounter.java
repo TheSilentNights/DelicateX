@@ -1,8 +1,8 @@
-package com.thesilentnights.admintoolspack.feature.entity;
+package com.thesilentnights.delicatex.feature.entity;
 
-import com.thesilentnights.admintoolspack.feature.model.ICommand;
-import com.thesilentnights.admintoolspack.utils.messageSender.MessageSender;
-import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToSender;
+import com.thesilentnights.delicatex.feature.model.ICommand;
+import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -34,7 +34,7 @@ public class EntityCounter implements ICommand {
             Location blockLocation = sender.getLocation().toBlockLocation();
             Collection<org.bukkit.entity.Entity> nearbyEntities = blockLocation.getNearbyEntities(x, y, z);
 
-            Map<String, Integer> map = com.thesilentnights.admintoolspack.utils.entity.EntityCounter.execute(nearbyEntities);
+            Map<String, Integer> map = com.thesilentnights.delicatex.utils.entity.EntityCounter.execute(nearbyEntities);
             if (strings.length == 3) {
                 map.forEach((k, v) -> {
                     MessageSender.sendMessage(new MessageToSender(k + " : " + v.toString(), sender));

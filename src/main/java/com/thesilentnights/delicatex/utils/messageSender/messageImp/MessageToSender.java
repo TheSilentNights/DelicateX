@@ -1,14 +1,11 @@
-package com.thesilentnights.admintoolspack.utils.messageSender.messageImp;
+package com.thesilentnights.delicatex.utils.messageSender.messageImp;
 
-import com.thesilentnights.admintoolspack.utils.messageSender.Message;
-import com.thesilentnights.admintoolspack.utils.messageSender.Target;
+import com.thesilentnights.delicatex.utils.messageSender.Message;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class MessageToSender extends Message {
 
     public MessageToSender(String body, CommandSender targetPlayer) {
-        this.target = Target.PLAYER;
         this.targetPlayer = targetPlayer;
         this.body = body;
     }

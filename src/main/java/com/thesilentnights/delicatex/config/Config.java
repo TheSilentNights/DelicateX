@@ -1,6 +1,6 @@
-package com.thesilentnights.admintoolspack.config;
+package com.thesilentnights.delicatex.config;
 
-import com.thesilentnights.admintoolspack.AdminToolsPack;
+import com.thesilentnights.delicatex.DelicateX;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
@@ -28,7 +28,7 @@ public class Config {
     public static void saveConfigs() {
         configs.forEach((name, config1) -> {
             try {
-                config1.config.save(AdminToolsPack.getInstance().getDataFolder() + "\\" + name + ".yml");
+                config1.config.save(new File(DelicateX.getInstance().getDataFolder() + "\\" + name + ".yml"));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

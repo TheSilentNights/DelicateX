@@ -1,11 +1,8 @@
-package com.thesilentnights.admintoolspack.feature.entity;
+package com.thesilentnights.delicatex.feature.entity;
 
-import com.thesilentnights.admintoolspack.feature.model.ICommand;
-import com.thesilentnights.admintoolspack.utils.messageSender.MessageSender;
-import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToSender;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.ComponentLike;
-import net.kyori.adventure.text.format.Style;
+import com.thesilentnights.delicatex.feature.model.ICommand;
+import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,7 +10,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.Collection;
 import java.util.List;

@@ -1,6 +1,6 @@
 name: AdminToolsPack
 version: '${project.version}'
-main: com.thesilentnights.admintoolspack.AdminToolsPack
+main: com.thesilentnights.delicatex.DelicateX
 api-version: '1.19'
 
 commands:

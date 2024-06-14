@@ -1,18 +1,19 @@
-package com.thesilentnights.admintoolspack;
+package com.thesilentnights.delicatex;
 
-import com.thesilentnights.admintoolspack.config.Config;
-import com.thesilentnights.admintoolspack.feature.chat.PlayerChatListener;
-import com.thesilentnights.admintoolspack.feature.distance.Distance;
-import com.thesilentnights.admintoolspack.feature.entity.EntityClear;
-import com.thesilentnights.admintoolspack.feature.entity.EntityCounter;
-import com.thesilentnights.admintoolspack.feature.reboot.ScheduledReboot;
+import com.thesilentnights.delicatex.config.Config;
+import com.thesilentnights.delicatex.feature.chat.PlayerChatListener;
+import com.thesilentnights.delicatex.feature.distance.Distance;
+import com.thesilentnights.delicatex.feature.entity.EntityClear;
+import com.thesilentnights.delicatex.feature.entity.EntityCounter;
+import com.thesilentnights.delicatex.feature.entity.PlayerJoinListener;
+import com.thesilentnights.delicatex.feature.reboot.ScheduledReboot;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
 
-public final class AdminToolsPack extends JavaPlugin {
-    private static AdminToolsPack instance;
+public final class DelicateX extends JavaPlugin {
+    private static DelicateX instance;
 
     @Override
     public void onEnable() {
@@ -30,6 +31,7 @@ public final class AdminToolsPack extends JavaPlugin {
         Objects.requireNonNull(getCommand(EntityClear.COMMAND_NAME)).setExecutor(new EntityClear());
         //reg eventsListener
         getServer().getPluginManager().registerEvents(new PlayerChatListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
     }
 
     @Override
@@ -39,7 +41,7 @@ public final class AdminToolsPack extends JavaPlugin {
         Config.saveConfigs();
     }
 
-    public static AdminToolsPack getInstance() {
+    public static DelicateX getInstance() {
         return instance;
     }
 

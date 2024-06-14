@@ -1,13 +1,13 @@
-package com.thesilentnights.admintoolspack.feature.reboot;
+package com.thesilentnights.delicatex.feature.reboot;
 
-import com.thesilentnights.admintoolspack.AdminToolsPack;
-import com.thesilentnights.admintoolspack.feature.model.ICommand;
-import com.thesilentnights.admintoolspack.utils.messageSender.MessageSender;
-import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToALL;
-import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToSender;
+import com.thesilentnights.delicatex.DelicateX;
+import com.thesilentnights.delicatex.feature.model.ICommand;
+import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToALL;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import com.thesilentnights.admintoolspack.utils.task.tick.TickTimer;
+import com.thesilentnights.delicatex.utils.task.tick.TickTimer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -56,6 +56,6 @@ public class ScheduledReboot implements ICommand {
 class ScheduledRebootTimer extends TickTimer {
     @Override
     public void run() {
-        AdminToolsPack.getInstance().getServer().shutdown();
+        DelicateX.getInstance().getServer().shutdown();
     }
 }

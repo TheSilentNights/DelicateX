@@ -1,8 +1,8 @@
-package com.thesilentnights.admintoolspack.feature.distance;
+package com.thesilentnights.delicatex.feature.distance;
 
-import com.thesilentnights.admintoolspack.feature.model.ICommand;
-import com.thesilentnights.admintoolspack.utils.messageSender.MessageSender;
-import com.thesilentnights.admintoolspack.utils.messageSender.messageImp.MessageToSender;
+import com.thesilentnights.delicatex.feature.model.ICommand;
+import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
