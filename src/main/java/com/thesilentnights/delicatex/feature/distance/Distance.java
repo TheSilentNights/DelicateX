@@ -2,7 +2,7 @@ package com.thesilentnights.delicatex.feature.distance;
 
 import com.thesilentnights.delicatex.feature.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
-import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -25,12 +25,12 @@ public class Distance implements ICommand {
             if (recordedLocation.get(player.getName()) != null) {
                 Location currentLocation = player.getLocation().toBlockLocation();
                 double distance = currentLocation.distance(recordedLocation.get(player.getName()));
-                MessageSender.sendMessage(new MessageToSender(Double.toString(distance), player));
+                MessageSender.sendMessage(new MessageToSingle(Double.toString(distance), player));
                 recordedLocation.remove(player.getName());
                 return true;
             }
             recordedLocation.put(player.getName(), player.getLocation().toBlockLocation());
-            MessageSender.sendMessage(new MessageToSender("再次输入以计算两点位置(以玩家所处坐标取整为准)", player));
+            MessageSender.sendMessage(new MessageToSingle("再次输入以计算两点位置(以玩家所处坐标取整为准)", player));
         }
         return false;
     }

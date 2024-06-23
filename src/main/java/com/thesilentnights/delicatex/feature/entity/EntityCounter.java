@@ -2,7 +2,7 @@ package com.thesilentnights.delicatex.feature.entity;
 
 import com.thesilentnights.delicatex.feature.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
-import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -22,7 +22,7 @@ public class EntityCounter implements ICommand {
         if (commandSender instanceof Player) {
             Player sender = (Player) commandSender;
             if (strings.length != 3 && strings.length != 4) {
-                MessageSender.sendMessage(new MessageToSender("输入坐标范围错误", sender));
+                MessageSender.sendMessage(new MessageToSingle("输入坐标范围错误", sender));
                 return false;
             }
 
@@ -37,10 +37,10 @@ public class EntityCounter implements ICommand {
             Map<String, Integer> map = com.thesilentnights.delicatex.utils.entity.EntityCounter.execute(nearbyEntities);
             if (strings.length == 3) {
                 map.forEach((k, v) -> {
-                    MessageSender.sendMessage(new MessageToSender(k + " : " + v.toString(), sender));
+                    MessageSender.sendMessage(new MessageToSingle(k + " : " + v.toString(), sender));
                 });
             } else {
-                MessageSender.sendMessage(new MessageToSender(map.get(strings[3]).toString(), sender));
+                MessageSender.sendMessage(new MessageToSingle(map.get(strings[3]).toString(), sender));
             }
 
             return true;

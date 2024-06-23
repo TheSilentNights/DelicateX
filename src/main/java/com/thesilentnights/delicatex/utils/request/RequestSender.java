@@ -1,16 +1,10 @@
 package com.thesilentnights.delicatex.utils.request;
 
-import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
-import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
-import org.bukkit.Bukkit;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
-import java.util.Scanner;
 
 public class RequestSender {
     private String ip;

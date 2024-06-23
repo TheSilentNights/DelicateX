@@ -3,12 +3,10 @@ package com.thesilentnights.delicatex.feature.chat;
 import com.thesilentnights.delicatex.DelicateX;
 import com.thesilentnights.delicatex.feature.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
-import com.thesilentnights.delicatex.utils.messageSender.messageImp.ChatMessage;
-import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.PrivateChatMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -25,7 +23,7 @@ public class PrivateMessage implements ICommand {
             if (ifHas){
                 MessageSender.sendMessage(new PrivateChatMessage(DelicateX.getInstance().getServer().getPlayer(strings[0]),commandSender,strings[0]));
             }else{
-                MessageSender.sendMessage(new MessageToSender("玩家不在线或不存在",commandSender));
+                MessageSender.sendMessage(new MessageToSingle("玩家不在线或不存在",commandSender));
             }
         return true;
     }

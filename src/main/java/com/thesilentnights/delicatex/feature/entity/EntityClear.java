@@ -2,7 +2,7 @@ package com.thesilentnights.delicatex.feature.entity;
 
 import com.thesilentnights.delicatex.feature.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
-import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -22,7 +22,7 @@ public class EntityClear implements ICommand {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if (commandSender instanceof Player sender) {
             if (strings.length != 4) {
-                MessageSender.sendMessage(new MessageToSender("输入坐标范围错误", sender));
+                MessageSender.sendMessage(new MessageToSingle("输入坐标范围错误", sender));
                 return true;
             }
 
@@ -40,7 +40,7 @@ public class EntityClear implements ICommand {
                     if (entity.getType().getKey().getKey().equals(strings[3])) {
                         Player player = (Player) entity;
                         player.kick();
-                        MessageSender.sendMessage(new MessageToSender("删除了:" + entity.getType().getKey(), sender));
+                        MessageSender.sendMessage(new MessageToSingle("删除了:" + entity.getType().getKey(), sender));
                     }
                 });
                 return true;
@@ -49,7 +49,7 @@ public class EntityClear implements ICommand {
             nearbyEntities.forEach(entity -> {
                 if (entity.getType().getKey().getKey().equals(strings[3])) {
                     entity.remove();
-                    MessageSender.sendMessage(new MessageToSender("删除了:" + entity.getType().getKey(), sender));
+                    MessageSender.sendMessage(new MessageToSingle("删除了:" + entity.getType().getKey(), sender));
                 }
             });
             return true;

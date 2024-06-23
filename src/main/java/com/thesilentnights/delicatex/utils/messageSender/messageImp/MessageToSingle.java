@@ -3,9 +3,9 @@ package com.thesilentnights.delicatex.utils.messageSender.messageImp;
 import com.thesilentnights.delicatex.utils.messageSender.Message;
 import org.bukkit.command.CommandSender;
 
-public class MessageToSender extends Message {
+public class MessageToSingle extends Message {
 
-    public MessageToSender(String body, CommandSender targetPlayer) {
+    public MessageToSingle(String body, CommandSender targetPlayer) {
         this.targetPlayer = targetPlayer;
         this.body = body;
     }

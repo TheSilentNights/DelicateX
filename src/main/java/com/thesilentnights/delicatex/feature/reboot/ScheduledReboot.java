@@ -4,7 +4,7 @@ import com.thesilentnights.delicatex.DelicateX;
 import com.thesilentnights.delicatex.feature.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToALL;
-import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSender;
+import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import com.thesilentnights.delicatex.utils.task.tick.TickTimer;
@@ -35,7 +35,7 @@ public class ScheduledReboot implements ICommand {
             }
             return true;
         } catch (Exception e) {
-            MessageSender.sendMessage(new MessageToSender("参数输入错误", commandSender));
+            MessageSender.sendMessage(new MessageToSingle("参数输入错误", commandSender));
             return false;
         }
     }
