@@ -27,6 +27,10 @@ commands:
   ipLocation:
     permission: op
     description: none
+    usage: executing...
+  broadcast:
+    permission: op
+    description: none
     usage: none
 default-permission:
   op

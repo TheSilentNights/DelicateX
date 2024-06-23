@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.feature.model;
+package com.thesilentnights.delicatex.model;
 
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;

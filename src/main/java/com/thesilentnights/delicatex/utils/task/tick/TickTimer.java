@@ -13,4 +13,9 @@ abstract public class TickTimer extends BukkitRunnable {
     public void setLaterStart(long delay) {
         this.runTaskLater(DelicateX.getInstance(), delay * 20);
     }
+
+    //延迟异步执行
+    public void setTimerAsynchronouslyStart(long delay ,long time){
+        this.runTaskTimerAsynchronously(DelicateX.getInstance(),delay,time);
+    }
 }

@@ -1,6 +1,6 @@
 package com.thesilentnights.delicatex.feature.distance;
 
-import com.thesilentnights.delicatex.feature.model.ICommand;
+import com.thesilentnights.delicatex.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import org.bukkit.Location;

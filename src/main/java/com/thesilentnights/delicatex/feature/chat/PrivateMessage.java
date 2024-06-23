@@ -1,7 +1,7 @@
 package com.thesilentnights.delicatex.feature.chat;
 
 import com.thesilentnights.delicatex.DelicateX;
-import com.thesilentnights.delicatex.feature.model.ICommand;
+import com.thesilentnights.delicatex.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.PrivateChatMessage;

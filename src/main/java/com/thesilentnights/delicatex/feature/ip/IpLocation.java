@@ -2,10 +2,12 @@ package com.thesilentnights.delicatex.feature.ip;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.thesilentnights.delicatex.DelicateX;
-import com.thesilentnights.delicatex.feature.model.ICommand;
+import com.thesilentnights.delicatex.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
+import com.thesilentnights.delicatex.utils.request.RequestLimit;
 import com.thesilentnights.delicatex.utils.request.RequestSender;
+import com.thesilentnights.delicatex.utils.task.tick.TickTimer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -17,31 +19,29 @@ import java.util.List;
 
 public class IpLocation implements ICommand {
     public static final String COMMAND_NAME = "IpLocation";
+    //请求限制
+    private final IpLocationRequestLimit ipLocationRequestLimit;
+
+    public IpLocation() {
+        this.ipLocationRequestLimit = new IpLocationRequestLimit();
+        ipLocationRequestLimit.setTimerAsynchronouslyStart(60, 60);
+    }
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         Player player = DelicateX.getInstance().getServer().getPlayer(strings[0]);
         if (player == null) {
             MessageSender.sendMessage(new MessageToSingle("该玩家不存在", commandSender));
-            return false;
+            return true;
         }
         if (strings[0].equals("ip")) {
             MessageSender.sendMessage(new MessageToSingle(player.getAddress().getHostString(), commandSender));
             return true;
         }
-        try {
-            String response = new RequestSender("ip-api.com", "json", player.getAddress().getHostString() + "?fields=status,country,city,query").sendGet();
-            JSONObject jsonObject = JSONObject.parseObject(response);
-
-            if (jsonObject.getString("status").equals("success")) {
-                MessageSender.sendMessage(new MessageToSingle(jsonObject.getString("country"), commandSender));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return true;
+        IpLocationRunnable ipLocationRunnable = new IpLocationRunnable(player,commandSender,ipLocationRequestLimit);
+        Thread thread = new Thread(ipLocationRunnable);
+        thread.start();
+        return false;
     }
 
     @Override
@@ -51,5 +51,64 @@ public class IpLocation implements ICommand {
             list.add(player.getName());
         }
         return list;
+    }
+}
+
+class IpLocationRequestLimit extends TickTimer implements RequestLimit {
+    private int count;
+
+    public IpLocationRequestLimit() {
+        this.count = 0;
+    }
+
+    @Override
+    public boolean ifCan() {
+        if (count < 46) {
+            count++;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public void run() {
+        this.count = 0;
+    }
+}
+
+class IpLocationRunnable implements Runnable {
+    private Player player;
+    private CommandSender commandSender;
+    private IpLocationRequestLimit ipLocationRequestLimit;
+
+    public IpLocationRunnable(Player player, CommandSender commandSender, IpLocationRequestLimit ipLocationRequestLimit) {
+        this.player = player;
+        this.commandSender = commandSender;
+        this.ipLocationRequestLimit = ipLocationRequestLimit;
+    }
+
+    @Override
+    public void run() {
+        try {
+            String response = new RequestSender("ip-api.com", "json", player.getAddress().getHostString() + "?fields=status,country,city,query", ipLocationRequestLimit).sendGet();
+            if (response == null) {
+                MessageSender.sendMessage(new MessageToSingle("请求过于频繁，请1分钟后再试", commandSender));
+                return;
+            }
+
+            JSONObject jsonObject = JSONObject.parseObject(response);
+
+            if (jsonObject.getString("status").equals("fail")) {
+                MessageSender.sendMessage(new MessageToSingle("请求失败", commandSender));
+                return;
+            }
+
+            MessageSender.sendMessage(new MessageToSingle(jsonObject.getString("country"), commandSender));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }
