@@ -24,5 +24,9 @@ commands:
     permission: op
     description: none
     usage: none
+  ipLocation:
+    permission: op
+    description: none
+    usage: none
 default-permission:
   op

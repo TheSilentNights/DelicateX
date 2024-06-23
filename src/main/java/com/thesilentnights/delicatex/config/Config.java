@@ -21,7 +21,7 @@ public class Config {
         return config.getBoolean(key);
     }
 
-    public void saveBoolean(String key, boolean value) {
+    public void setBoolean(String key, boolean value) {
         config.set(key, value);
     }
 

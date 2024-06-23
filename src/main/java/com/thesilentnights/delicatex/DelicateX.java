@@ -7,6 +7,7 @@ import com.thesilentnights.delicatex.feature.distance.Distance;
 import com.thesilentnights.delicatex.feature.entity.EntityClear;
 import com.thesilentnights.delicatex.feature.entity.EntityCounter;
 import com.thesilentnights.delicatex.feature.entity.PlayerJoinListener;
+import com.thesilentnights.delicatex.feature.ip.IpLocation;
 import com.thesilentnights.delicatex.feature.reboot.ScheduledReboot;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -31,6 +32,7 @@ public final class DelicateX extends JavaPlugin {
         Objects.requireNonNull(getCommand(ScheduledReboot.COMMAND_NAME)).setExecutor(new ScheduledReboot());
         Objects.requireNonNull(getCommand(EntityClear.COMMAND_NAME)).setExecutor(new EntityClear());
         Objects.requireNonNull(getCommand(PrivateMessage.COMMAND_NAME)).setExecutor(new PrivateMessage());
+        Objects.requireNonNull(getCommand(IpLocation.COMMAND_NAME)).setExecutor(new IpLocation());
         //reg eventsListener
         getServer().getPluginManager().registerEvents(new PlayerChatListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
