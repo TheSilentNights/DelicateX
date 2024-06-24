@@ -7,10 +7,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class RequestSender{
-    private String ip;
-    private String param;
-    private String route; //存在多级route时用/分割 -> json/api 反映在请求上为: https://xxx.xxx.xxx/json/api/param
-    private RequestLimit limit;
+    private final String ip;
+    private final String param;
+    private final String route; //存在多级route时用/分割 -> json/api 反映在请求上为: https://xxx.xxx.xxx/json/api/param
+    private final RequestLimit limit;
 
     public RequestSender(String ip, String route,String param,RequestLimit limit) {
         this.ip = ip;

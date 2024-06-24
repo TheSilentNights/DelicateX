@@ -5,8 +5,10 @@ import com.thesilentnights.delicatex.feature.chat.Broadcast;
 import com.thesilentnights.delicatex.feature.chat.PlayerChatListener;
 import com.thesilentnights.delicatex.feature.chat.PrivateMessage;
 import com.thesilentnights.delicatex.feature.distance.Distance;
+import com.thesilentnights.delicatex.feature.enchant.Enchant;
 import com.thesilentnights.delicatex.feature.entity.EntityClear;
 import com.thesilentnights.delicatex.feature.entity.EntityCounter;
+import com.thesilentnights.delicatex.feature.entity.InventoryViewer;
 import com.thesilentnights.delicatex.feature.entity.PlayerJoinListener;
 import com.thesilentnights.delicatex.feature.ip.IpLocation;
 import com.thesilentnights.delicatex.feature.reboot.ScheduledReboot;
@@ -32,9 +34,14 @@ public final class DelicateX extends JavaPlugin {
         Objects.requireNonNull(getCommand(EntityCounter.COMMAND_NAME)).setExecutor(new EntityCounter());
         Objects.requireNonNull(getCommand(ScheduledReboot.COMMAND_NAME)).setExecutor(new ScheduledReboot());
         Objects.requireNonNull(getCommand(EntityClear.COMMAND_NAME)).setExecutor(new EntityClear());
-        Objects.requireNonNull(getCommand(PrivateMessage.COMMAND_NAME)).setExecutor(new PrivateMessage());
         Objects.requireNonNull(getCommand(IpLocation.COMMAND_NAME)).setExecutor(new IpLocation());
         Objects.requireNonNull(getCommand(Broadcast.COMMAND_NAME)).setExecutor(new Broadcast());
+        Objects.requireNonNull(getCommand(Enchant.COMMAND_NAME)).setExecutor(new Enchant());
+        Objects.requireNonNull(getCommand(InventoryViewer.COMMAND_NAME)).setExecutor(new InventoryViewer());
+
+        if (Config.getConfig("config").getBoolean("if-enable-private_message")){
+            Objects.requireNonNull(getCommand(PrivateMessage.COMMAND_NAME)).setExecutor(new PrivateMessage());
+        }
         //reg eventsListener
         getServer().getPluginManager().registerEvents(new PlayerChatListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);

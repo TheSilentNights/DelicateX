@@ -6,30 +6,29 @@ api-version: '1.19'
 commands:
   privateMsg:
     permission: player
+    aliases: [pMsg]
     description: none
-    usage: none
+    usage: /privateMsg
   distance:
-    permission: op
     description: none
     usage: none
   entityCounter:
-    permission: op
     description: none
     usage: none
   scheduledReboot:
-    permission: op
     description: create a task that will shutdown the server in the future
     usage: /scheduledreboot [time(seconds)] [if-broadcast]
   entityClear:
-    permission: op
     description: none
     usage: none
   ipLocation:
-    permission: op
     description: none
     usage: executing...
   broadcast:
-    permission: op
+    description: none
+    aliases: [shout]
+    usage: none
+  enchant:
     description: none
     usage: none
 default-permission:
