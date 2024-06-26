@@ -1,6 +1,7 @@
 package com.thesilentnights.delicatex;
 
 import com.thesilentnights.delicatex.config.Config;
+import com.thesilentnights.delicatex.feature.cdk.CDK;
 import com.thesilentnights.delicatex.feature.chat.Broadcast;
 import com.thesilentnights.delicatex.feature.chat.PlayerChatListener;
 import com.thesilentnights.delicatex.feature.chat.PrivateMessage;
@@ -38,6 +39,7 @@ public final class DelicateX extends JavaPlugin {
         Objects.requireNonNull(getCommand(Broadcast.COMMAND_NAME)).setExecutor(new Broadcast());
         Objects.requireNonNull(getCommand(Enchant.COMMAND_NAME)).setExecutor(new Enchant());
         Objects.requireNonNull(getCommand(InventoryViewer.COMMAND_NAME)).setExecutor(new InventoryViewer());
+        Objects.requireNonNull(getCommand(CDK.COMMAND_NAME)).setExecutor(new CDK());
 
         if (Config.getConfig("config").getBoolean("if-enable-private_message")){
             Objects.requireNonNull(getCommand(PrivateMessage.COMMAND_NAME)).setExecutor(new PrivateMessage());
