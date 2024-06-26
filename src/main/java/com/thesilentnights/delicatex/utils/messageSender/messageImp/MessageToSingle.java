@@ -13,6 +13,6 @@ public class MessageToSingle extends Message {
 
     @Override
     protected void send() {
-        this.targetPlayer.sendMessage(ChatColorFormatter.replace("&a[单人消息]:&f "+body));
+        this.targetPlayer.sendMessage(ChatColorFormatter.replace("&a[DelicateX]:&f "+body));
     }
 }

@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.checkerframework.framework.qual.LiteralKind;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -18,25 +19,30 @@ public class CDK implements ICommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
+        if (strings.length != 3) {
+            MessageSender.sendMessage(new MessageToSingle("参数错误", commandSender));
+            return false;
+        }
         if (commandSender instanceof Player player) {
             if (strings[0].equals("create") && commandSender.isOp()) {
-                switch (strings[1]) {
-                    case "item":
-                        ItemStack[] contents = player.getInventory().getContents();
-                        if (contents.length == 0) {
-                            MessageSender.sendMessage(new MessageToSingle("背包是空的", player));
-                            return true;
+                //item
+                if (!strings[1].equals("none")) {
+                    ItemStack[] contents = player.getInventory().getContents();
+                    CDKRepo.createCDK(strings[2], new CDKModel() {
+                        @Override
+                        public void execute(Player player) {
+                            //去除空
+                            List<ItemStack> list = Arrays.stream(contents).filter(itemStack -> itemStack != null).toList();
+                            list.forEach(itemStack -> player.getInventory().addItem(itemStack));
                         }
-                        CDKRepo.createCDK(strings[2], new CDKModel() {
-                            @Override
-                            public void execute(Player player) {
-                                //去除空
-                                List<ItemStack> list = Arrays.stream(contents).filter(itemStack -> itemStack != null).toList();
-                                list.forEach(itemStack -> player.getInventory().addItem(itemStack));
-                            }
-                        });
+                    });
                 }
-            } else if (strings[0].equals("remove")) {
+                //money
+                if (!strings[2].equals("none")) {
+                    MessageSender.sendMessage(new MessageToSingle("该功能未开发完毕", player));
+                }
+
+            } else if (strings[0].equals("remove") && player.isOp()) {
                 CDKRepo.remove(strings[1]);
             } else {
                 CDKRepo.exchange(strings[0], player);
@@ -47,21 +53,18 @@ public class CDK implements ICommand {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        if (commandSender.isOp()){
-            if (strings.length == 1) {
-                return List.of("create", "remove");
-            } else if (strings.length == 2) {
-                if (strings[0].equals("create")) {
-                    return List.of("item", "money");
-                } else if (strings[0].equals("remove")) {
-                    return CDKRepo.ListKey().stream().toList();
-                }
-            } else if (strings.length == 3 && strings[0].equals("create")) {
-                if (strings[1].equals("item")) {
-                    return List.of();
-                } else if (strings[1].equals("money")) {
-                    return List.of("[value]");
-                }
+        if (commandSender.isOp()) {
+            switch (strings.length) {
+                case 1:
+                    return List.of("create", "remove");
+                case 2:
+                    if (strings[0].equals("create")) {
+                        return List.of("inventory(any other is ok)", "none");
+                    } else if (strings[0].equals("remove")) {
+                        return CDKRepo.ListKey().stream().toList();
+                    }
+                case 3:
+                    return List.of("[moneyValue(require Integer)]", "none");
             }
         }
         return List.of();
