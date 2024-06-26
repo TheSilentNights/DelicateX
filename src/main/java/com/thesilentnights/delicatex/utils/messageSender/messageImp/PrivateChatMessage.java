@@ -18,6 +18,7 @@ public class PrivateChatMessage extends Message {
 
     @Override
     protected void send() {
-        to.sendMessage(ChatColorFormatter.replace("&a"+from.getName()+"&f->"+body));
+        from.sendMessage(ChatColorFormatter.replace("&dTo "+"&a"+to.getName()+"&f: "+body));
+        to.sendMessage(ChatColorFormatter.replace("&5From "+"&a"+from.getName()+"&f: "+body));
     }
 }
