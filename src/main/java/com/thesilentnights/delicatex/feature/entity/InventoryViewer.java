@@ -16,7 +16,7 @@ public class InventoryViewer implements ICommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        Player target = DelicateX.getInstance().getServer().getPlayer(strings[2]);
+        Player target = DelicateX.getInstance().getServer().getPlayer(strings[0]);
 
         if (commandSender instanceof Player sender && target != null && target.isOnline()) {
             sender.openInventory(target.getInventory());

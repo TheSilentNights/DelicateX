@@ -3,40 +3,55 @@ version: '${project.version}'
 main: com.thesilentnights.delicatex.DelicateX
 api-version: '1.19'
 
+
 commands:
   privateMsg:
-    permission: player
+    permission: permission.player
     aliases: [ pMsg ]
     description: none
     usage: /privateMsg
   distance:
+    permission: permission.operator
     description: none
     usage: none
   entityCounter:
+    permission: permission.operator
     description: none
     usage: none
   scheduledReboot:
+    permission: permission.operator
     description: create a task that will shutdown the server in the future
     usage: /scheduledreboot [time(seconds)] [if-broadcast]
   entityClear:
+    permission: permission.operator
     description: none
     usage: none
   ipLocation:
+    permission: permission.operator
     description: none
     usage: executing...
   broadcast:
+    permission: permission.operator
     description: none
     aliases: [ shout ]
     usage: none
   enchant:
+    permission: permission.operator
     description: none
     usage: none
   inventoryViewer:
+    permission: permission.operator
     description: none
     usage: none
     aliases: [ open ]
   cdk:
+    permission: permission.player
     description: none
     usage: none
-default-permission:
-  op
+
+permissions:
+  permission.operator:
+    default: op
+  permission.player:
+    description:
+    default: true
