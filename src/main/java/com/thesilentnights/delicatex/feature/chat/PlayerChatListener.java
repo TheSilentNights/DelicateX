@@ -4,7 +4,6 @@ import com.thesilentnights.delicatex.config.Config;
 import com.thesilentnights.delicatex.utils.color.ChatColorFormatter;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToALL;
-import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChatEvent;

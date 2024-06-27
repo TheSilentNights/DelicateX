@@ -21,9 +21,10 @@ public class CDK implements ICommand {
 
 
     //param: create item money cdk expire
+    @SuppressWarnings("ConstantValue")
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        boolean ifVaultEnabled = DelicateX.getInstance().getServer().getPluginManager().isPluginEnabled(DelicateX.getPlugin(Vault.class));
+        boolean ifVaultEnabled = DelicateX.getInstance().getServer().getPluginManager().isPluginEnabled("Vault");
 
         if (!ifVaultEnabled){
             MessageSender.sendMessage(new MessageToSingle("vault未加载",commandSender));
@@ -37,7 +38,7 @@ public class CDK implements ICommand {
 
                 //item
                 if (!strings[1].equals("none")) {
-                    itemStacks = Arrays.stream(player.getInventory().getContents()).filter(itemStack -> itemStack != null).toList();
+                    itemStacks = Arrays.stream( player.getInventory().getContents()).filter(itemStack -> itemStack != null).toList();
                 }
                 //money
                 try{
@@ -48,7 +49,6 @@ public class CDK implements ICommand {
 
                 //expire
                 if (!strings[4].isEmpty()) {
-
                     try {
                         expire = Long.parseLong(strings[4]);
                     } catch (Exception e) {

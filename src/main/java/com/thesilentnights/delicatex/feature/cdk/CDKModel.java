@@ -1,5 +1,6 @@
 package com.thesilentnights.delicatex.feature.cdk;
 
+import com.thesilentnights.delicatex.DelicateX;
 import com.thesilentnights.delicatex.repo.VaultEssApi;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
@@ -39,7 +40,10 @@ public class CDKModel extends TickTimer {
               player.getInventory().addItem(itemStack);
             }
         }
-        VaultEssApi.essentialsApi.depositPlayer(player,money);
+        //校验Vault API的加载
+        if (DelicateX.getInstance().getServer().getPluginManager().isPluginEnabled("Vault")){
+            VaultEssApi.essentialsApi.depositPlayer(player,money);
+        }
         MessageSender.sendMessage(new MessageToSingle("物品/金钱已添加进背包/钱包",player));
         gained.add(player.getName());
     }
