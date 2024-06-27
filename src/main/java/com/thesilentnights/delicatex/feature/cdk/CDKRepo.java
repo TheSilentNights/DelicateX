@@ -18,7 +18,7 @@ public class CDKRepo {
     public static void exchange(String key, Player player) {
         CDKModel cdkModel = CDKs.get(key);
         if (cdkModel != null) {
-            cdkModel.execute(player);
+            cdkModel.exchange(player);
             MessageSender.sendMessage(new MessageToSingle("物品/金钱已添加进背包/钱包",player));
         }else {
             MessageSender.sendMessage(new MessageToSingle("错误的cdk",player));
@@ -31,6 +31,10 @@ public class CDKRepo {
 
     public static Set<String> ListKey(){
         return CDKs.keySet();
+    }
+
+    public static CDKModel getCDK(String key){
+        return CDKs.get(key);
     }
 
 }
