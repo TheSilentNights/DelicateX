@@ -7,6 +7,7 @@ import com.thesilentnights.delicatex.utils.task.tick.TickTimer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -14,7 +15,7 @@ public class CDKModel extends TickTimer {
     private final String key;
     private List<ItemStack> itemStacks;
     private int money;
-    private List<String> gained;
+    private List<String> gained = new ArrayList<>();
 
     public CDKModel(String key) {
         this.key = key;
@@ -39,6 +40,7 @@ public class CDKModel extends TickTimer {
             }
         }
         VaultEssApi.essentialsApi.depositPlayer(player,money);
+        MessageSender.sendMessage(new MessageToSingle("物品/金钱已添加进背包/钱包",player));
         gained.add(player.getName());
     }
 

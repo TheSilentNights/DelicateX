@@ -58,7 +58,7 @@ public class CDK implements ICommand {
 
                 //生成
                 CDKModel cdkModel = new CDKModel(strings[3]);
-                if (!itemStacks.isEmpty()){
+                if (itemStacks != null && itemStacks.isEmpty()){
                     cdkModel.setItemGive(itemStacks);
                 }
                 cdkModel.setMoneyGive(moneyVal);
