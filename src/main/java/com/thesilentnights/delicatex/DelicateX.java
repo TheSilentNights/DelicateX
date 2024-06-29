@@ -46,7 +46,6 @@ public final class DelicateX extends JavaPlugin {
         }
         //reg eventsListener
 
-
         getServer().getPluginManager().registerEvents(new PlayerChatListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
     }

@@ -4,7 +4,6 @@ import com.thesilentnights.delicatex.DelicateX;
 import com.thesilentnights.delicatex.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
-import net.milkbowl.vault.Vault;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -58,7 +57,7 @@ public class CDK implements ICommand {
 
                 //生成
                 CDKModel cdkModel = new CDKModel(strings[3]);
-                if (itemStacks != null && itemStacks.isEmpty()){
+                if (itemStacks != null && !itemStacks.isEmpty()){
                     cdkModel.setItemGive(itemStacks);
                 }
                 cdkModel.setMoneyGive(moneyVal);
