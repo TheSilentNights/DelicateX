@@ -10,6 +10,9 @@ public class EntityCounter {
 
         nearbyEntities.forEach(entity -> {
             String namespace = entity.getType().getKey().getKey();
+            if (namespace == null){
+                return;
+            }
             if (map.get(namespace) == null) {
                 map.put(namespace, 1);
             } else {

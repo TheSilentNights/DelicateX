@@ -19,7 +19,11 @@ public class PrivateMessage implements ICommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-            boolean ifHas = DelicateX.getInstance().getServer().getOnlinePlayers().stream().anyMatch(player -> player.getName().equals(strings[0]));
+        if (strings.length!= 2){
+            MessageSender.sendMessage(new MessageToSingle("参数错误",commandSender));
+            return true;
+        }
+        boolean ifHas = DelicateX.getInstance().getServer().getOnlinePlayers().stream().anyMatch(player -> player.getName().equals(strings[0]));
             if (ifHas){
                 MessageSender.sendMessage(new PrivateChatMessage(DelicateX.getInstance().getServer().getPlayer(strings[0]),commandSender,strings[1]));
             }else{
@@ -32,7 +36,11 @@ public class PrivateMessage implements ICommand {
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if (strings.length == 1){
             List<String> list = new ArrayList<>();
-            DelicateX.getInstance().getServer().getOnlinePlayers().forEach(player -> list.add(player.getName()));
+            DelicateX.getInstance().getServer().getOnlinePlayers().forEach(player -> {
+                if (!player.getName().equals(commandSender.getName())) {
+                    list.add(player.getName());
+                }
+            });
             return list;
         }
         if (strings.length == 2){

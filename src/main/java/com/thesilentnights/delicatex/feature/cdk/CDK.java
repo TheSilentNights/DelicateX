@@ -25,8 +25,18 @@ public class CDK implements ICommand {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         boolean ifVaultEnabled = DelicateX.getInstance().getServer().getPluginManager().isPluginEnabled("Vault");
 
-        if (!ifVaultEnabled){
-            MessageSender.sendMessage(new MessageToSingle("vault未加载",commandSender));
+        if (!ifVaultEnabled) {
+            MessageSender.sendMessage(new MessageToSingle("&4请注意! vault未加载 部分功能不会生效", commandSender));
+        }
+
+        if (strings[0].equals("remove") && commandSender.isOp()) {
+            CDKRepo.remove(strings[1]);
+            return true;
+        }
+
+        if (strings[0].equals("list") && commandSender.isOp()){
+            CDKRepo.ListKey().forEach(key -> MessageSender.sendMessage(new MessageToSingle(key,commandSender)));
+            return true;
         }
 
         if (commandSender instanceof Player player) {
@@ -37,13 +47,16 @@ public class CDK implements ICommand {
 
                 //item
                 if (!strings[1].equals("none")) {
-                    itemStacks = Arrays.stream( player.getInventory().getContents()).filter(itemStack -> itemStack != null).toList();
+                    //返回值可能为空
+                    itemStacks = Arrays.stream(player.getInventory().getContents()).filter(itemStack -> itemStack != null).toList();
                 }
                 //money
-                try{
-                    moneyVal = Integer.parseInt(strings[2]);
-                }catch (Exception e){
-                    MessageSender.sendMessage(new MessageToSingle("货币参数错误",player));
+                if (!strings[2].equals("none")){
+                    try {
+                        moneyVal = Integer.parseInt(strings[2]);
+                    } catch (Exception e) {
+                        MessageSender.sendMessage(new MessageToSingle("货币参数错误", player));
+                    }
                 }
 
                 //expire
@@ -57,7 +70,9 @@ public class CDK implements ICommand {
 
                 //生成
                 CDKModel cdkModel = new CDKModel(strings[3]);
-                if (itemStacks != null && !itemStacks.isEmpty()){
+
+
+                if (itemStacks != null && !itemStacks.isEmpty()) {
                     cdkModel.setItemGive(itemStacks);
                 }
                 cdkModel.setMoneyGive(moneyVal);
@@ -65,8 +80,6 @@ public class CDK implements ICommand {
                 CDKRepo.createCDK(strings[3], cdkModel);
 
 
-            } else if (strings[0].equals("remove") && player.isOp()) {
-                CDKRepo.remove(strings[1]);
             } else {
                 CDKRepo.exchange(strings[0], player);
             }
@@ -79,7 +92,7 @@ public class CDK implements ICommand {
         if (commandSender.isOp()) {
             switch (strings.length) {
                 case 1:
-                    return List.of("create", "remove");
+                    return List.of("create", "remove", "list");
                 case 2:
                     if (strings[0].equals("create")) {
                         return List.of("inventory", "none");
@@ -88,6 +101,10 @@ public class CDK implements ICommand {
                     }
                 case 3:
                     return List.of("[moneyValue(require Integer)]", "none");
+                case 4:
+                    return List.of("[key]");
+                case 5:
+                    return List.of("[expireTime]");
             }
         }
         return List.of();

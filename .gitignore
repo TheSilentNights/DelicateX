@@ -19,3 +19,4 @@ buildNumber.properties
 #Idea default ignored files
 /shelf/
 /workspace.xml
+.idea/inspectionProfiles
