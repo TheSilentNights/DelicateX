@@ -10,8 +10,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class Help implements ICommand {
-    public static final String COMMAND_NAME = "help";
+public class Helper implements ICommand {
+    public static final String COMMAND_NAME = "helper";
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
@@ -34,6 +34,6 @@ public class Help implements ICommand {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        return List.of();
+        return List.of("");
     }
 }
