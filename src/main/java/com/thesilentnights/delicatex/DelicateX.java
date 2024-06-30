@@ -11,6 +11,7 @@ import com.thesilentnights.delicatex.feature.entity.EntityClear;
 import com.thesilentnights.delicatex.feature.entity.EntityCounter;
 import com.thesilentnights.delicatex.feature.entity.InventoryViewer;
 import com.thesilentnights.delicatex.feature.entity.PlayerJoinListener;
+import com.thesilentnights.delicatex.feature.help.Help;
 import com.thesilentnights.delicatex.feature.ip.IpLocation;
 import com.thesilentnights.delicatex.feature.reboot.ScheduledReboot;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -40,6 +41,7 @@ public final class DelicateX extends JavaPlugin {
         Objects.requireNonNull(getCommand(Enchant.COMMAND_NAME)).setExecutor(new Enchant());
         Objects.requireNonNull(getCommand(InventoryViewer.COMMAND_NAME)).setExecutor(new InventoryViewer());
         Objects.requireNonNull(getCommand(CDK.COMMAND_NAME)).setExecutor(new CDK());
+        Objects.requireNonNull(getCommand(Help.COMMAND_NAME)).setExecutor(new Help());
 
         if (Config.getConfig("config").getBoolean("if-enable-private_message")){
             Objects.requireNonNull(getCommand(PrivateMessage.COMMAND_NAME)).setExecutor(new PrivateMessage());

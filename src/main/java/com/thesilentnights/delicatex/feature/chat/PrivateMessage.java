@@ -7,6 +7,7 @@ import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSin
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.PrivateChatMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,9 +24,9 @@ public class PrivateMessage implements ICommand {
             MessageSender.sendMessage(new MessageToSingle("参数错误",commandSender));
             return true;
         }
-        boolean ifHas = DelicateX.getInstance().getServer().getOnlinePlayers().stream().anyMatch(player -> player.getName().equals(strings[0]));
-            if (ifHas){
-                MessageSender.sendMessage(new PrivateChatMessage(DelicateX.getInstance().getServer().getPlayer(strings[0]),commandSender,strings[1]));
+        Player player = DelicateX.getInstance().getServer().getPlayer(strings[0]);
+        if (player != null){
+                MessageSender.sendMessage(new PrivateChatMessage(player,commandSender,strings[1]));
             }else{
                 MessageSender.sendMessage(new MessageToSingle("玩家不在线或不存在",commandSender));
             }
