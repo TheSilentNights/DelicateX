@@ -17,6 +17,9 @@ public class PlayerEffectListener implements Listener {
     public void playerJoinListener(PlayerJoinEvent event){
         if (Config.getConfig("config").getBoolean("if-enable-auto_effect") && event.getPlayer().isOp()){
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION,PotionEffect.INFINITE_DURATION,1));
+            event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SATURATION,PotionEffect.INFINITE_DURATION,1));
+            event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.HEAL,PotionEffect.INFINITE_DURATION,1));
+
         }
     }
 
@@ -24,7 +27,10 @@ public class PlayerEffectListener implements Listener {
     public void playerDieListener(PlayerPostRespawnEvent event){
         if (event.getPlayer().isOp()){
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION,PotionEffect.INFINITE_DURATION,1));
+            event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SATURATION,PotionEffect.INFINITE_DURATION,1));
+            event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.HEAL,PotionEffect.INFINITE_DURATION,1));
         }
+
     }
 
 }

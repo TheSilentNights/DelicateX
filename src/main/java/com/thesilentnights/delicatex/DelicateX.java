@@ -1,22 +1,11 @@
 package com.thesilentnights.delicatex;
 
 import com.thesilentnights.delicatex.config.Config;
-import com.thesilentnights.delicatex.feature.cdk.CDK;
-import com.thesilentnights.delicatex.feature.chat.Broadcast;
 import com.thesilentnights.delicatex.feature.chat.PlayerChatListener;
-import com.thesilentnights.delicatex.feature.chat.PrivateMessage;
-import com.thesilentnights.delicatex.feature.chunk.ChunkLoaderCommand;
-import com.thesilentnights.delicatex.feature.distance.Distance;
-import com.thesilentnights.delicatex.feature.enchant.Enchant;
 import com.thesilentnights.delicatex.feature.entity.*;
-import com.thesilentnights.delicatex.feature.help.Helper;
-import com.thesilentnights.delicatex.feature.ip.IpLocation;
-import com.thesilentnights.delicatex.feature.reboot.ScheduledReboot;
 import com.thesilentnights.delicatex.utils.loader.ModuleLoader;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.Objects;
 
 public final class DelicateX extends JavaPlugin {
     private static DelicateX instance;

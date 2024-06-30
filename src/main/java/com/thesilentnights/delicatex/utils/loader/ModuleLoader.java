@@ -3,7 +3,7 @@ package com.thesilentnights.delicatex.utils.loader;
 import com.thesilentnights.delicatex.config.Config;
 import com.thesilentnights.delicatex.feature.cdk.CDK;
 import com.thesilentnights.delicatex.feature.chat.Broadcast;
-import com.thesilentnights.delicatex.feature.chat.PrivateMessage;
+import com.thesilentnights.delicatex.feature.chat.PrivateMsg;
 import com.thesilentnights.delicatex.feature.chunk.ChunkLoaderCommand;
 import com.thesilentnights.delicatex.feature.distance.Distance;
 import com.thesilentnights.delicatex.feature.enchant.Enchant;
@@ -39,7 +39,7 @@ public class ModuleLoader {
                 new ScheduledReboot()
         ));
         if (Config.getConfig("config").getBoolean("if-enable-private_message")) {
-            needRegister.add(new PrivateMessage());
+            needRegister.add(new PrivateMsg());
         }
         modules.addAll(needRegister);
     }

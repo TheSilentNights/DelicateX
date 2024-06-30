@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrivateMessage implements ICommand {
+public class PrivateMsg implements ICommand {
     public static final String COMMAND_NAME = "PrivateMsg";
 
 

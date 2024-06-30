@@ -52,7 +52,7 @@ commands:
     permission: permission.player
     description: none
     usage: none
-  ChunkLoader:
+  ChunkLoaderCommand:
     permission: permission.operator
     description: none
     usage: none

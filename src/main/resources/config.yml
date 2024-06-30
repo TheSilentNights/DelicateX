@@ -1,3 +1,4 @@
 if-enable-chat_color: true
 if-enable-auto_effect: true
 if-enable-private_message: true
+if-enable-message_record: false
