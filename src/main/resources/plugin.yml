@@ -48,7 +48,18 @@ commands:
     permission: permission.player
     description: none
     usage: none
-
+  helper:
+    permission: permission.player
+    description: none
+    usage: none
+  ChunkLoader:
+    permission: permission.operator
+    description: none
+    usage: none
+  forceHat:
+    permission: permission.player
+    description: none
+    usage: none
 permissions:
   permission.operator:
     default: op
