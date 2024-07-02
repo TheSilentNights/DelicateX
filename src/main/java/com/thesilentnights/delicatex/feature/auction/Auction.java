@@ -1,7 +1,6 @@
 package com.thesilentnights.delicatex.feature.auction;
 
 import com.thesilentnights.delicatex.model.ICommand;
-import com.thesilentnights.delicatex.repo.VaultEssApi;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import org.bukkit.command.Command;
