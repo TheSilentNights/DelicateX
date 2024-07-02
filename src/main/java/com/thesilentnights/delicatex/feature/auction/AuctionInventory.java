@@ -1,15 +1,20 @@
 package com.thesilentnights.delicatex.feature.auction;
 
 import com.thesilentnights.delicatex.utils.color.ChatColorFormatter;
+import net.kyori.adventure.text.Component;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
 
 public class AuctionInventory{
     private int page;
@@ -43,8 +48,17 @@ public class AuctionInventory{
         return inventory.getSize();
     }
 
-    public void addItem(ItemStack itemStack){
-        inventory.addItem(itemStack);
+    public void addItem(ItemStack itemStack,int price){
+        ItemStack clone = itemStack.clone();
+        if (clone.lore() == null){
+            clone.lore(List.of(Component.text("price: "+price)));
+        }else{
+            List<Component> lore = clone.lore();
+            lore.add(Component.text("price: "+price));
+            clone.lore(lore);
+        }
+        inventory.addItem(clone);
+
     }
 
     /*

@@ -36,7 +36,7 @@ public class AuctionHouse {
 
     public static void addItem(ItemStack itemStack, int price) {
         if (inventories.getLast().getEmptySlots() < inventories.getLast().getSize() - 9) {
-            inventories.getLast().addItem(itemStack);
+            inventories.getLast().addItem(itemStack,price);
         } else {
             AuctionInventory auctionInventory = new AuctionInventory(inventories.size(), inventories.getLast(), null);
             inventories.getLast().setNext(auctionInventory);
