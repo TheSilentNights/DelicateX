@@ -1,6 +1,8 @@
 package com.thesilentnights.delicatex.utils.loader;
 
+import com.thesilentnights.delicatex.DelicateX;
 import com.thesilentnights.delicatex.config.Config;
+import com.thesilentnights.delicatex.feature.auction.Auction;
 import com.thesilentnights.delicatex.feature.cdk.CDK;
 import com.thesilentnights.delicatex.feature.chat.Broadcast;
 import com.thesilentnights.delicatex.feature.chat.PrivateMsg;
@@ -15,6 +17,7 @@ import com.thesilentnights.delicatex.feature.help.Helper;
 import com.thesilentnights.delicatex.feature.ip.IpLocation;
 import com.thesilentnights.delicatex.feature.reboot.ScheduledReboot;
 import com.thesilentnights.delicatex.model.ICommand;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -41,6 +44,13 @@ public class ModuleLoader {
         if (Config.getConfig("config").getBoolean("if-enable-private_message")) {
             needRegister.add(new PrivateMsg());
         }
+
+        boolean vault = Bukkit.getPluginManager().isPluginEnabled("Vault");
+        boolean essentials = Bukkit.getPluginManager().isPluginEnabled("Essentials");
+        if (essentials && vault){
+            needRegister.add(new Auction());
+        }
+
         modules.addAll(needRegister);
     }
     public static void registerCommands(JavaPlugin plugin){

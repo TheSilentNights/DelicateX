@@ -19,7 +19,7 @@ public class PlayerEffectListener implements Listener {
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION,PotionEffect.INFINITE_DURATION,1));
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SATURATION,PotionEffect.INFINITE_DURATION,1));
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.HEAL,PotionEffect.INFINITE_DURATION,1));
-
+            event.getPlayer().setAllowFlight(true);
         }
     }
 
@@ -29,8 +29,8 @@ public class PlayerEffectListener implements Listener {
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION,PotionEffect.INFINITE_DURATION,1));
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SATURATION,PotionEffect.INFINITE_DURATION,1));
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.HEAL,PotionEffect.INFINITE_DURATION,1));
+            event.getPlayer().setAllowFlight(true);
         }
-
     }
 
 }

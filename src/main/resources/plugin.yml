@@ -60,6 +60,10 @@ commands:
     permission: permission.player
     description: none
     usage: none
+  Auction:
+    permission: permission.player
+    description: none
+    usage: none
 permissions:
   permission.operator:
     default: op
