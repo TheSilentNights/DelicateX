@@ -1,6 +1,7 @@
 package com.thesilentnights.delicatex;
 
 import com.thesilentnights.delicatex.config.Config;
+import com.thesilentnights.delicatex.feature.auction.AuctionInventoryClickEvent;
 import com.thesilentnights.delicatex.feature.chat.PlayerChatListener;
 import com.thesilentnights.delicatex.feature.entity.*;
 import com.thesilentnights.delicatex.utils.loader.ModuleLoader;
@@ -27,7 +28,7 @@ public final class DelicateX extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new PlayerChatListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerEffectListener(), this);
-
+        getServer().getPluginManager().registerEvents(new AuctionInventoryClickEvent(),this);
         //load class
         com.thesilentnights.delicatex.utils.chunk.ChunkLoader.init();
 
