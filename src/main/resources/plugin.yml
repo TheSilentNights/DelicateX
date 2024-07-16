@@ -1,9 +1,8 @@
 name: DelicateX
 version: '${project.version}'
 main: com.thesilentnights.delicatex.DelicateX
-api-version: '1.19'
-
-
+api-version: '1.17'
+softdepend: [ OpenChestAnyWhere ]
 commands:
   privateMsg:
     permission: permission.player

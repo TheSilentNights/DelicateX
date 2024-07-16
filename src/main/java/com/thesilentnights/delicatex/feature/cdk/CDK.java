@@ -16,7 +16,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CDK implements ICommand {
-    public static final String COMMAND_NAME = "CDK";
 
 
     //param: create item money cdk expire
@@ -34,8 +33,8 @@ public class CDK implements ICommand {
             return true;
         }
 
-        if (strings[0].equals("list") && commandSender.isOp()){
-            CDKRepo.ListKey().forEach(key -> MessageSender.send(new MessageToSingle(key,commandSender)));
+        if (strings[0].equals("list") && commandSender.isOp()) {
+            CDKRepo.ListKey().forEach(key -> MessageSender.send(new MessageToSingle(key, commandSender)));
             return true;
         }
 
@@ -51,7 +50,7 @@ public class CDK implements ICommand {
                     itemStacks = Arrays.stream(player.getInventory().getContents()).filter(itemStack -> itemStack != null).toList();
                 }
                 //money
-                if (!strings[2].equals("none")){
+                if (!strings[2].equals("none")) {
                     try {
                         moneyVal = Integer.parseInt(strings[2]);
                     } catch (Exception e) {

@@ -16,7 +16,6 @@ import java.util.Map;
 
 public class Distance implements ICommand {
     private final Map<String, Location> recordedLocation = new HashMap<>();
-    public static final String COMMAND_NAME = "Distance";
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {

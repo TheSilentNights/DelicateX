@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChunkLoaderCommand implements ICommand {
-    public static final String COMMAND_NAME = "chunkLoader";
     //param: load world x z ifGenerate
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
@@ -34,8 +33,8 @@ public class ChunkLoaderCommand implements ICommand {
             return true;
         }
         World world = DelicateX.getInstance().getServer().getWorld(strings[1]);
-        if (world == null){
-            MessageSender.send(new MessageToSingle("世界不存在",commandSender));
+        if (world == null) {
+            MessageSender.send(new MessageToSingle("世界不存在", commandSender));
             return true;
         }
         switch (strings[0]) {
@@ -46,7 +45,7 @@ public class ChunkLoaderCommand implements ICommand {
                 ChunkLoader.unloadChunk(world, x, z);
             }
             default -> {
-                MessageSender.send(new MessageToSingle("该操作不存在",commandSender));
+                MessageSender.send(new MessageToSingle("该操作不存在", commandSender));
             }
         }
         return true;
@@ -55,27 +54,27 @@ public class ChunkLoaderCommand implements ICommand {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        switch (strings.length){
-            case 1->{
-                return List.of("load","unload");
+        switch (strings.length) {
+            case 1 -> {
+                return List.of("load", "unload");
             }
-            case 2->{
+            case 2 -> {
                 List<String> result = new ArrayList<>();
                 DelicateX.getInstance().getServer().getWorlds().forEach(world -> {
                     result.add(world.getName());
                 });
                 return result;
             }
-            case 3->{
+            case 3 -> {
                 return List.of("[x]");
             }
-            case 4->{
+            case 4 -> {
                 return List.of("[z]");
             }
-            case 5->{
+            case 5 -> {
                 return List.of("[ifGenerate]");
             }
-            default->{
+            default -> {
                 return List.of("");
             }
         }

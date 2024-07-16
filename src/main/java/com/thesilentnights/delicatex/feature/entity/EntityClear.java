@@ -3,6 +3,7 @@ package com.thesilentnights.delicatex.feature.entity;
 import com.thesilentnights.delicatex.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -16,7 +17,6 @@ import java.util.List;
 
 public class EntityClear implements ICommand {
 
-    public static final String COMMAND_NAME = "EntityClear";
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
@@ -39,7 +39,7 @@ public class EntityClear implements ICommand {
                 nearbyEntities.forEach(entity -> {
                     if (entity.getType().getKey().getKey().equals(strings[3])) {
                         Player player = (Player) entity;
-                        player.kick();
+                        player.kick(Component.text("kicked by admin"));
                         MessageSender.send(new MessageToSingle("删除了:" + entity.getType().getKey(), sender));
                     }
                 });

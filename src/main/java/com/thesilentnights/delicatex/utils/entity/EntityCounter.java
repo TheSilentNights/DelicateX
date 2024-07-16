@@ -1,7 +1,5 @@
 package com.thesilentnights.delicatex.utils.entity;
 
-import net.milkbowl.vault.economy.Economy;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +9,7 @@ public class EntityCounter {
         Map<String, Integer> map = new HashMap<>();
 
         nearbyEntities.forEach(entity -> {
-            try{
+            try {
                 String namespace = entity.getType().getKey().getKey();
                 if (map.get(namespace) == null) {
                     map.put(namespace, 1);
@@ -20,8 +18,8 @@ public class EntityCounter {
                         return val + 1;
                     });
                 }
-            }catch (Exception e){
-                map.put("ender_dragon",1);
+            } catch (Exception e) {
+                map.put("ender_dragon", 1);
             }
         });
         return map;

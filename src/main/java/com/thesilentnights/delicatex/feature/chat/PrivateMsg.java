@@ -15,27 +15,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrivateMsg implements ICommand {
-    public static final String COMMAND_NAME = "PrivateMsg";
 
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        if (strings.length!= 2){
-            MessageSender.send(new MessageToSingle("参数错误",commandSender));
+        if (strings.length != 2) {
+            MessageSender.send(new MessageToSingle("参数错误", commandSender));
             return true;
         }
         Player player = DelicateX.getInstance().getServer().getPlayer(strings[0]);
-        if (player != null){
-                MessageSender.send(new PrivateChatMessage(player,commandSender,strings[1]));
-            }else{
-                MessageSender.send(new MessageToSingle("玩家不在线或不存在",commandSender));
-            }
+        if (player != null) {
+            MessageSender.send(new PrivateChatMessage(player, commandSender, strings[1]));
+        } else {
+            MessageSender.send(new MessageToSingle("玩家不在线或不存在", commandSender));
+        }
         return true;
     }
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        if (strings.length == 1){
+        if (strings.length == 1) {
             List<String> list = new ArrayList<>();
             DelicateX.getInstance().getServer().getOnlinePlayers().forEach(player -> {
                 if (!player.getName().equals(commandSender.getName())) {
@@ -44,7 +43,7 @@ public class PrivateMsg implements ICommand {
             });
             return list;
         }
-        if (strings.length == 2){
+        if (strings.length == 2) {
             return List.of("[message]");
         }
         return List.of();
