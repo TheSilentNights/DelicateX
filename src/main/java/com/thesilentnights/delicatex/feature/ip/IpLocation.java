@@ -38,7 +38,7 @@ public class IpLocation implements ICommand {
             MessageSender.send(new MessageToSingle(player.getAddress().getHostString(), commandSender));
             return true;
         }
-        IpLocationRunnable ipLocationRunnable = new IpLocationRunnable(player,commandSender,ipLocationRequestLimit);
+        IpLocationRunnable ipLocationRunnable = new IpLocationRunnable(player, commandSender, ipLocationRequestLimit);
         Thread thread = new Thread(ipLocationRunnable);
         thread.start();
         return false;
@@ -62,7 +62,7 @@ class IpLocationRequestLimit extends TickTimer implements RequestLimit {
     }
 
     @Override
-    public boolean ifCan() {
+    synchronized public boolean ifCan() {
         if (count < 46) {
             count++;
             return true;
