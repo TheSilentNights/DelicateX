@@ -1,4 +1,4 @@
-package com.thesilentnights.openchestanywhere.utils.messageSender;
+package com.thesilentnights.delicatex.utils.messageSender;
 
 import org.bukkit.command.CommandSender;
 
