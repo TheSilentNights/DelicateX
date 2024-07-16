@@ -1,8 +1,7 @@
-package com.thesilentnights.delicatex.feature.ip;
+package com.thesilentnights.delicatex.commands;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.thesilentnights.delicatex.DelicateX;
-import com.thesilentnights.delicatex.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import com.thesilentnights.delicatex.utils.request.RequestLimit;

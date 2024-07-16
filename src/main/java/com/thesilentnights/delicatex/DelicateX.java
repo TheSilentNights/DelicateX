@@ -1,7 +1,7 @@
 package com.thesilentnights.delicatex;
 
-import com.thesilentnights.delicatex.feature.chat.PlayerChatListener;
-import com.thesilentnights.delicatex.feature.entity.PlayerEffectListener;
+import com.thesilentnights.delicatex.listeners.PlayerChatListener;
+import com.thesilentnights.delicatex.listeners.PlayerEffectListener;
 import com.thesilentnights.delicatex.utils.config.Config;
 import com.thesilentnights.delicatex.utils.loader.ModuleLoader;
 import org.bukkit.configuration.file.YamlConfiguration;

@@ -1,6 +1,5 @@
-package com.thesilentnights.delicatex.feature.entity;
+package com.thesilentnights.delicatex.commands;
 
-import com.thesilentnights.delicatex.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import org.bukkit.Material;
@@ -29,7 +28,7 @@ public class ForceHat implements ICommand {
                 sender.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
                 return true;
             }
-            
+
             ItemStack armorContent = armorContents[3];
             armorContents[3] = sender.getInventory().getItemInMainHand();
             sender.getInventory().setArmorContents(armorContents);

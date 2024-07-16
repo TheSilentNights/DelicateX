@@ -1,21 +1,21 @@
 package com.thesilentnights.delicatex.utils.loader;
 
-import com.thesilentnights.delicatex.feature.cdk.CDK;
-import com.thesilentnights.delicatex.feature.chat.Broadcast;
-import com.thesilentnights.delicatex.feature.chat.PrivateMsg;
-import com.thesilentnights.delicatex.feature.chunk.ChunkLoaderCommand;
-import com.thesilentnights.delicatex.feature.distance.Distance;
-import com.thesilentnights.delicatex.feature.enchant.Enchant;
-import com.thesilentnights.delicatex.feature.entity.EntityClear;
-import com.thesilentnights.delicatex.feature.entity.EntityCounter;
-import com.thesilentnights.delicatex.feature.entity.ForceHat;
-import com.thesilentnights.delicatex.feature.entity.InventoryViewer;
-import com.thesilentnights.delicatex.feature.fix.Fix;
-import com.thesilentnights.delicatex.feature.help.Helper;
-import com.thesilentnights.delicatex.feature.ip.IpLocation;
-import com.thesilentnights.delicatex.feature.reboot.ScheduledReboot;
-import com.thesilentnights.delicatex.feature.report.Report;
-import com.thesilentnights.delicatex.model.ICommand;
+import com.thesilentnights.delicatex.commands.CDK;
+import com.thesilentnights.delicatex.commands.Broadcast;
+import com.thesilentnights.delicatex.commands.PrivateMsg;
+import com.thesilentnights.delicatex.commands.ChunkLoaderCommand;
+import com.thesilentnights.delicatex.commands.Distance;
+import com.thesilentnights.delicatex.commands.Enchant;
+import com.thesilentnights.delicatex.commands.EntityClear;
+import com.thesilentnights.delicatex.commands.EntityCounter;
+import com.thesilentnights.delicatex.commands.ForceHat;
+import com.thesilentnights.delicatex.commands.InventoryViewer;
+import com.thesilentnights.delicatex.commands.Fix;
+import com.thesilentnights.delicatex.commands.Helper;
+import com.thesilentnights.delicatex.commands.IpLocation;
+import com.thesilentnights.delicatex.commands.ScheduledReboot;
+import com.thesilentnights.delicatex.commands.Report;
+import com.thesilentnights.delicatex.commands.ICommand;
 import com.thesilentnights.delicatex.utils.config.Config;
 import org.bukkit.plugin.java.JavaPlugin;
 

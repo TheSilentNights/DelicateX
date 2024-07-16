@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.feature.cdk;
+package com.thesilentnights.delicatex.utils.cdk;
 
 import com.thesilentnights.delicatex.DelicateX;
 import com.thesilentnights.delicatex.repo.VaultEssApi;
@@ -21,41 +21,41 @@ public class CDKModel extends TickTimer {
         this.key = key;
     }
 
-    public void setItemGive(List<ItemStack> itemStacks){
-         this.itemStacks = itemStacks;
+    public void setItemGive(List<ItemStack> itemStacks) {
+        this.itemStacks = itemStacks;
     }
 
-    public void setMoneyGive(int value){
+    public void setMoneyGive(int value) {
         this.money = value;
     }
 
-    public void exchange(Player player){
-        if (gained.stream().anyMatch(s -> s.equals(player.getName()))){
-            MessageSender.send(new MessageToSingle("你已经领取过了哦",player));
+    public void exchange(Player player) {
+        if (gained.stream().anyMatch(s -> s.equals(player.getName()))) {
+            MessageSender.send(new MessageToSingle("你已经领取过了哦", player));
             return;
         }
-        if (!itemStacks.isEmpty()){
+        if (!itemStacks.isEmpty()) {
             for (ItemStack itemStack : itemStacks) {
-              player.getInventory().addItem(itemStack);
+                player.getInventory().addItem(itemStack);
             }
         }
         //校验Vault API的加载
-        if (DelicateX.getInstance().getServer().getPluginManager().isPluginEnabled("Vault")){
-            VaultEssApi.essentialsApi.depositPlayer(player,money);
+        if (DelicateX.getInstance().getServer().getPluginManager().isPluginEnabled("Vault")) {
+            VaultEssApi.essentialsApi.depositPlayer(player, money);
         }
-        MessageSender.send(new MessageToSingle("物品/金钱已添加进背包/钱包",player));
+        MessageSender.send(new MessageToSingle("物品/金钱已添加进背包/钱包", player));
         gained.add(player.getName());
     }
 
-    public void setExpire(Long time){
-        if (time == -1){
+    public void setExpire(Long time) {
+        if (time == -1) {
             return;
         }
         this.setLaterStart(time);
     }
 
     @Override
-    public void run(){
+    public void run() {
         CDKRepo.remove(key);
     }
 }

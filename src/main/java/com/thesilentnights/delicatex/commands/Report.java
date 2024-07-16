@@ -1,7 +1,6 @@
-package com.thesilentnights.delicatex.feature.report;
+package com.thesilentnights.delicatex.commands;
 
 import com.thesilentnights.delicatex.DelicateX;
-import com.thesilentnights.delicatex.model.ICommand;
 import com.thesilentnights.delicatex.utils.config.Config;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;

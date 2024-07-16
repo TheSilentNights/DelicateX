@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.feature.chat;
+package com.thesilentnights.delicatex.listeners;
 
 import com.thesilentnights.delicatex.utils.color.ChatColorFormatter;
 import com.thesilentnights.delicatex.utils.config.Config;

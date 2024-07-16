@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.feature.entity;
+package com.thesilentnights.delicatex.listeners;
 
 import com.destroystokyo.paper.event.player.PlayerPostRespawnEvent;
 import com.thesilentnights.delicatex.utils.config.Config;

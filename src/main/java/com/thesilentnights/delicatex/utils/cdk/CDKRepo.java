@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.feature.cdk;
+package com.thesilentnights.delicatex.utils.cdk;
 
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
@@ -19,20 +19,20 @@ public class CDKRepo {
         CDKModel cdkModel = CDKs.get(key);
         if (cdkModel != null) {
             cdkModel.exchange(player);
-        }else {
-            MessageSender.send(new MessageToSingle("错误的cdk",player));
+        } else {
+            MessageSender.send(new MessageToSingle("错误的cdk", player));
         }
     }
 
-    public static void remove(String key){
+    public static void remove(String key) {
         CDKs.remove(key);
     }
 
-    public static Set<String> ListKey(){
+    public static Set<String> ListKey() {
         return CDKs.keySet();
     }
 
-    public static CDKModel getCDK(String key){
+    public static CDKModel getCDK(String key) {
         return CDKs.get(key);
     }
 

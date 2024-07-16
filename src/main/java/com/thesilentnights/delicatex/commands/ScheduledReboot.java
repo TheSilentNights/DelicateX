@@ -1,7 +1,6 @@
-package com.thesilentnights.delicatex.feature.reboot;
+package com.thesilentnights.delicatex.commands;
 
 import com.thesilentnights.delicatex.DelicateX;
-import com.thesilentnights.delicatex.model.ICommand;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToALL;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
