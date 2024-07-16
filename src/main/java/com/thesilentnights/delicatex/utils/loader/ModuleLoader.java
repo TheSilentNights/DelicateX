@@ -10,6 +10,7 @@ import com.thesilentnights.delicatex.feature.entity.EntityClear;
 import com.thesilentnights.delicatex.feature.entity.EntityCounter;
 import com.thesilentnights.delicatex.feature.entity.ForceHat;
 import com.thesilentnights.delicatex.feature.entity.InventoryViewer;
+import com.thesilentnights.delicatex.feature.fix.Fix;
 import com.thesilentnights.delicatex.feature.help.Helper;
 import com.thesilentnights.delicatex.feature.ip.IpLocation;
 import com.thesilentnights.delicatex.feature.reboot.ScheduledReboot;
@@ -39,8 +40,10 @@ public class ModuleLoader {
                 new Helper(),
                 new IpLocation(),
                 new ScheduledReboot(),
-                new Report()
+                new Report(),
+                new Fix()
         ));
+
         if (Config.getConfig("config").getBoolean("if-enable-private_message")) {
             needRegister.add(new PrivateMsg());
         }
