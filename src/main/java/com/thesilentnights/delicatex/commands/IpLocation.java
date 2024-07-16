@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IpLocation implements ICommand {
+public class IpLocation implements DelicateCommand {
     public static final String COMMAND_NAME = "IpLocation";
     //请求限制
     private final IpLocationRequestLimit ipLocationRequestLimit;

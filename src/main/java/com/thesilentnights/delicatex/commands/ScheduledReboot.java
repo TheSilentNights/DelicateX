@@ -4,15 +4,15 @@ import com.thesilentnights.delicatex.DelicateX;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToALL;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
+import com.thesilentnights.delicatex.utils.task.tick.TickTimer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import com.thesilentnights.delicatex.utils.task.tick.TickTimer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ScheduledReboot implements ICommand {
+public class ScheduledReboot implements DelicateCommand {
     public static final String COMMAND_NAME = "ScheduledReboot";
     private Long scheduledTime;
     private boolean ifBroadcast;

@@ -2,36 +2,34 @@ package com.thesilentnights.delicatex.commands;
 
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.Damageable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Fix implements DelicateCommand {
+public class ForceExecute implements DelicateCommand {
+    List<String> commandList = new ArrayList<String>();
+
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        if (commandSender instanceof Player player) {
-            if (player.getInventory().getItemInMainHand().getType().isAir()) {
-                MessageSender.send(new MessageToSingle("你必须手持物品", player));
-                return true;
-            }
-            ItemStack stack = player.getInventory().getItemInMainHand();
-            if (stack.getItemMeta() instanceof Damageable damageable) {
-                damageable.setDamage(0);
-                stack.setItemMeta(damageable);
-            }
+        Player player = Bukkit.getServer().getPlayer(strings[0]);
+        if (player == null) {
+            MessageSender.send(new MessageToSingle("玩家不存在", commandSender));
+            return true;
         }
-
+        player.performCommand(strings[1]);
         return true;
     }
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        return List.of();
+        commandList.clear();
+        commandList.addAll(Bukkit.getCommandAliases().keySet());
+        return commandList;
     }
 }

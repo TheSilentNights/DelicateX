@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class Report implements ICommand {
+public class Report implements DelicateCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         boolean anyMatch = DelicateX.getInstance().getServer().getOnlinePlayers().stream().anyMatch(player -> player.isOp());
@@ -24,13 +24,16 @@ public class Report implements ICommand {
                 }
             });
         }
-        Config.getConfig("reports").setList(commandSender.getName(), List.of(strings[0], new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())));
+        Config.getConfig("reports").setList(commandSender.getName() + "-" + new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()), List.of(strings[0]));
         Config.saveConfigs();
         return true;
     }
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
+        if (strings.length == 1) {
+            return List.of("[reason]");
+        }
         return List.of();
     }
 }

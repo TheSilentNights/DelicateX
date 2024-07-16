@@ -62,6 +62,14 @@ commands:
     permission: permission.player
     description: none
     usage: none
+  fix:
+    permission: permission.operator
+    description: none
+    usage: none
+  forceExecute:
+    permission: permission.operator
+    description: none
+    usage: none
 permissions:
   permission.operator:
     default: op

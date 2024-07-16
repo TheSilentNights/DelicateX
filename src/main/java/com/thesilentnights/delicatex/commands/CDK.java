@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CDK implements ICommand {
+public class CDK implements DelicateCommand {
 
 
     //param: create item money cdk expire
@@ -106,6 +106,8 @@ public class CDK implements ICommand {
                 case 5:
                     return List.of("[expireTime]");
             }
+        } else if (strings.length == 1) {
+            return List.of("[cdk]");
         }
         return List.of();
     }

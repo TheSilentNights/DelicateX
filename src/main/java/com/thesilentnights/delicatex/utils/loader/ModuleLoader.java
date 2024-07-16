@@ -1,21 +1,6 @@
 package com.thesilentnights.delicatex.utils.loader;
 
-import com.thesilentnights.delicatex.commands.CDK;
-import com.thesilentnights.delicatex.commands.Broadcast;
-import com.thesilentnights.delicatex.commands.PrivateMsg;
-import com.thesilentnights.delicatex.commands.ChunkLoaderCommand;
-import com.thesilentnights.delicatex.commands.Distance;
-import com.thesilentnights.delicatex.commands.Enchant;
-import com.thesilentnights.delicatex.commands.EntityClear;
-import com.thesilentnights.delicatex.commands.EntityCounter;
-import com.thesilentnights.delicatex.commands.ForceHat;
-import com.thesilentnights.delicatex.commands.InventoryViewer;
-import com.thesilentnights.delicatex.commands.Fix;
-import com.thesilentnights.delicatex.commands.Helper;
-import com.thesilentnights.delicatex.commands.IpLocation;
-import com.thesilentnights.delicatex.commands.ScheduledReboot;
-import com.thesilentnights.delicatex.commands.Report;
-import com.thesilentnights.delicatex.commands.ICommand;
+import com.thesilentnights.delicatex.commands.*;
 import com.thesilentnights.delicatex.utils.config.Config;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,10 +9,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class ModuleLoader {
-    private static final List<ICommand> modules = new ArrayList<>();
+    private static final List<DelicateCommand> modules = new ArrayList<>();
 
     static { //register module
-        List<ICommand> needRegister = new ArrayList<>(List.of(
+        List<DelicateCommand> needRegister = new ArrayList<>(List.of(
                 new CDK(),
                 new Broadcast(),
                 new ChunkLoaderCommand(),
@@ -41,7 +26,8 @@ public class ModuleLoader {
                 new IpLocation(),
                 new ScheduledReboot(),
                 new Report(),
-                new Fix()
+                new Fix(),
+                new ForceExecute()
         ));
 
         if (Config.getConfig("config").getBoolean("if-enable-private_message")) {

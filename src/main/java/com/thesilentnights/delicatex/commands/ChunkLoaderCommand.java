@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChunkLoaderCommand implements ICommand {
+public class ChunkLoaderCommand implements DelicateCommand {
     //param: load world x z ifGenerate
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {

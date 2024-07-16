@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrivateMsg implements ICommand {
+public class PrivateMsg implements DelicateCommand {
 
 
     @Override
