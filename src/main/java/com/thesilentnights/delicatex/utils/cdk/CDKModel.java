@@ -16,6 +16,7 @@ public class CDKModel extends TickTimer {
     private List<ItemStack> itemStacks;
     private int money;
     private final List<String> gained = new ArrayList<>();
+    private boolean expire = false;
 
     public CDKModel(String key) {
         this.key = key;
@@ -54,8 +55,12 @@ public class CDKModel extends TickTimer {
         this.setLaterStart(time);
     }
 
+    public boolean ifExpired() {
+        return expire;
+    }
+
     @Override
     public void run() {
-        CDKRepo.remove(key);
+        this.expire = true;
     }
 }

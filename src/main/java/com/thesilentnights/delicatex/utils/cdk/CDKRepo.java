@@ -17,10 +17,12 @@ public class CDKRepo {
 
     public static void exchange(String key, Player player) {
         CDKModel cdkModel = CDKs.get(key);
-        if (cdkModel != null) {
-            cdkModel.exchange(player);
-        } else {
+        if (cdkModel == null) {
             MessageSender.send(new MessageToSingle("错误的cdk", player));
+        } else if (cdkModel.ifExpired()) {
+            MessageSender.send(new MessageToSingle("该cdk已过期", player));
+        } else {
+            cdkModel.exchange(player);
         }
     }
 
