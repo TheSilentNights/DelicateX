@@ -1,8 +1,5 @@
 package com.thesilentnights.delicatex.utils.loader;
 
-import com.thesilentnights.delicatex.DelicateX;
-import com.thesilentnights.delicatex.config.Config;
-import com.thesilentnights.delicatex.feature.auction.Auction;
 import com.thesilentnights.delicatex.feature.cdk.CDK;
 import com.thesilentnights.delicatex.feature.chat.Broadcast;
 import com.thesilentnights.delicatex.feature.chat.PrivateMsg;
@@ -16,8 +13,9 @@ import com.thesilentnights.delicatex.feature.entity.InventoryViewer;
 import com.thesilentnights.delicatex.feature.help.Helper;
 import com.thesilentnights.delicatex.feature.ip.IpLocation;
 import com.thesilentnights.delicatex.feature.reboot.ScheduledReboot;
+import com.thesilentnights.delicatex.feature.report.Report;
 import com.thesilentnights.delicatex.model.ICommand;
-import org.bukkit.Bukkit;
+import com.thesilentnights.delicatex.utils.config.Config;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -26,6 +24,7 @@ import java.util.Objects;
 
 public class ModuleLoader {
     private static final List<ICommand> modules = new ArrayList<>();
+
     static { //register module
         List<ICommand> needRegister = new ArrayList<>(List.of(
                 new CDK(),
@@ -39,21 +38,18 @@ public class ModuleLoader {
                 new InventoryViewer(),
                 new Helper(),
                 new IpLocation(),
-                new ScheduledReboot()
+                new ScheduledReboot(),
+                new Report()
         ));
         if (Config.getConfig("config").getBoolean("if-enable-private_message")) {
             needRegister.add(new PrivateMsg());
         }
 
-        boolean vault = Bukkit.getPluginManager().isPluginEnabled("Vault");
-        boolean essentials = Bukkit.getPluginManager().isPluginEnabled("Essentials");
-        if (essentials && vault){
-            needRegister.add(new Auction());
-        }
 
         modules.addAll(needRegister);
     }
-    public static void registerCommands(JavaPlugin plugin){
+
+    public static void registerCommands(JavaPlugin plugin) {
         modules.forEach(command -> {
             Objects.requireNonNull(plugin.getCommand(command.getClass().getSimpleName())).setExecutor(command);
         });

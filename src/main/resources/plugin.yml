@@ -7,9 +7,8 @@ api-version: '1.19'
 commands:
   privateMsg:
     permission: permission.player
-    aliases: [ pMsg ]
     description: none
-    usage: /privateMsg
+    usage: [ message ]
   distance:
     permission: permission.operator
     description: none
@@ -60,7 +59,7 @@ commands:
     permission: permission.player
     description: none
     usage: none
-  Auction:
+  report:
     permission: permission.player
     description: none
     usage: none

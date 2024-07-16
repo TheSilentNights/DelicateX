@@ -14,7 +14,7 @@ public class Broadcast implements ICommand {
     public static final String COMMAND_NAME = "Broadcast";
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        MessageSender.sendMessage(new MessageToALL(strings[0]));
+        MessageSender.send(new MessageToALL(strings[0]));
         return true;
     }
 

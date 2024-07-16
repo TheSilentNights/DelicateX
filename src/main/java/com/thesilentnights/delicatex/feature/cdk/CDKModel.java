@@ -10,7 +10,6 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class CDKModel extends TickTimer {
     private final String key;
@@ -32,7 +31,7 @@ public class CDKModel extends TickTimer {
 
     public void exchange(Player player){
         if (gained.stream().anyMatch(s -> s.equals(player.getName()))){
-            MessageSender.sendMessage(new MessageToSingle("你已经领取过了哦",player));
+            MessageSender.send(new MessageToSingle("你已经领取过了哦",player));
             return;
         }
         if (!itemStacks.isEmpty()){
@@ -44,7 +43,7 @@ public class CDKModel extends TickTimer {
         if (DelicateX.getInstance().getServer().getPluginManager().isPluginEnabled("Vault")){
             VaultEssApi.essentialsApi.depositPlayer(player,money);
         }
-        MessageSender.sendMessage(new MessageToSingle("物品/金钱已添加进背包/钱包",player));
+        MessageSender.send(new MessageToSingle("物品/金钱已添加进背包/钱包",player));
         gained.add(player.getName());
     }
 

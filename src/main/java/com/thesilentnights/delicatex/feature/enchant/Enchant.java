@@ -25,7 +25,7 @@ public class Enchant implements ICommand {
                 player.getInventory().getItemInMainHand().addUnsafeEnchantment(byKey,Integer.parseInt(strings[1]));
                 return true;
             }
-            MessageSender.sendMessage(new MessageToSingle("该附魔不存在",player));
+            MessageSender.send(new MessageToSingle("该附魔不存在",player));
         }
         return true;
     }

@@ -26,7 +26,7 @@ public class CDK implements ICommand {
         boolean ifVaultEnabled = DelicateX.getInstance().getServer().getPluginManager().isPluginEnabled("Vault");
 
         if (!ifVaultEnabled) {
-            MessageSender.sendMessage(new MessageToSingle("&4请注意! vault未加载 部分功能不会生效", commandSender));
+            MessageSender.send(new MessageToSingle("&4请注意! vault未加载 部分功能不会生效", commandSender));
         }
 
         if (strings[0].equals("remove") && commandSender.isOp()) {
@@ -35,7 +35,7 @@ public class CDK implements ICommand {
         }
 
         if (strings[0].equals("list") && commandSender.isOp()){
-            CDKRepo.ListKey().forEach(key -> MessageSender.sendMessage(new MessageToSingle(key,commandSender)));
+            CDKRepo.ListKey().forEach(key -> MessageSender.send(new MessageToSingle(key,commandSender)));
             return true;
         }
 
@@ -55,7 +55,7 @@ public class CDK implements ICommand {
                     try {
                         moneyVal = Integer.parseInt(strings[2]);
                     } catch (Exception e) {
-                        MessageSender.sendMessage(new MessageToSingle("货币参数错误", player));
+                        MessageSender.send(new MessageToSingle("货币参数错误", player));
                     }
                 }
 
@@ -64,7 +64,7 @@ public class CDK implements ICommand {
                     try {
                         expire = Long.parseLong(strings[4]);
                     } catch (Exception e) {
-                        MessageSender.sendMessage(new MessageToSingle("时间参数错误", player));
+                        MessageSender.send(new MessageToSingle("时间参数错误", player));
                     }
                 }
 

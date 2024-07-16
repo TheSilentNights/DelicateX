@@ -19,7 +19,7 @@ public class InventoryViewer implements ICommand {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if (strings.length != 1){
-            MessageSender.sendMessage(new MessageToSingle("参数错误",commandSender));
+            MessageSender.send(new MessageToSingle("参数错误",commandSender));
             return true;
         }
         Player target = DelicateX.getInstance().getServer().getPlayer(strings[0]);

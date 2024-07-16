@@ -1,7 +1,7 @@
-package com.thesilentnights.delicatex.utils.messageSender;
+package com.thesilentnights.openchestanywhere.utils.messageSender;
 
 public class MessageSender {
-    public static void sendMessage(Message message){
+    public static void send(Message message){
         message.send();
     }
 }

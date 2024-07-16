@@ -22,7 +22,7 @@ public class EntityClear implements ICommand {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if (commandSender instanceof Player sender) {
             if (strings.length != 4) {
-                MessageSender.sendMessage(new MessageToSingle("输入坐标范围错误", sender));
+                MessageSender.send(new MessageToSingle("输入坐标范围错误", sender));
                 return true;
             }
 
@@ -40,7 +40,7 @@ public class EntityClear implements ICommand {
                     if (entity.getType().getKey().getKey().equals(strings[3])) {
                         Player player = (Player) entity;
                         player.kick();
-                        MessageSender.sendMessage(new MessageToSingle("删除了:" + entity.getType().getKey(), sender));
+                        MessageSender.send(new MessageToSingle("删除了:" + entity.getType().getKey(), sender));
                     }
                 });
                 return true;
@@ -49,7 +49,7 @@ public class EntityClear implements ICommand {
             nearbyEntities.forEach(entity -> {
                 if (entity.getType().getKey().getKey().equals(strings[3])) {
                     entity.remove();
-                    MessageSender.sendMessage(new MessageToSingle("删除了:" + entity.getType().getKey(), sender));
+                    MessageSender.send(new MessageToSingle("删除了:" + entity.getType().getKey(), sender));
                 }
             });
             return true;

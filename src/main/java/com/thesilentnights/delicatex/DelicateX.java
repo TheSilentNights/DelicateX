@@ -1,9 +1,8 @@
 package com.thesilentnights.delicatex;
 
-import com.thesilentnights.delicatex.config.Config;
-import com.thesilentnights.delicatex.feature.auction.AuctionInventoryClickEvent;
 import com.thesilentnights.delicatex.feature.chat.PlayerChatListener;
-import com.thesilentnights.delicatex.feature.entity.*;
+import com.thesilentnights.delicatex.feature.entity.PlayerEffectListener;
+import com.thesilentnights.delicatex.utils.config.Config;
 import com.thesilentnights.delicatex.utils.loader.ModuleLoader;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,6 +18,7 @@ public final class DelicateX extends JavaPlugin {
             saveDefaultConfig();
         }
         new Config((YamlConfiguration) getConfig(), "config");
+        new Config(new YamlConfiguration(), "reports");
         instance = this;
 
         //reg command
@@ -28,7 +28,6 @@ public final class DelicateX extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new PlayerChatListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerEffectListener(), this);
-        getServer().getPluginManager().registerEvents(new AuctionInventoryClickEvent(),this);
         //load class
         com.thesilentnights.delicatex.utils.chunk.ChunkLoader.init();
 

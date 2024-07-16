@@ -30,12 +30,12 @@ public class ScheduledReboot implements ICommand {
             new ScheduledRebootTimer().setLaterStart(scheduledTime);
             if (ifBroadcast) {
                 for (int i = 0; i < 5; i++) {
-                    MessageSender.sendMessage(new MessageToALL("服务器将在 " + scheduledTime + "s 后重启"));
+                    MessageSender.send(new MessageToALL("服务器将在 " + scheduledTime + "s 后重启"));
                 }
             }
             return true;
         } catch (Exception e) {
-            MessageSender.sendMessage(new MessageToSingle("参数输入错误", commandSender));
+            MessageSender.send(new MessageToSingle("参数输入错误", commandSender));
             return false;
         }
     }

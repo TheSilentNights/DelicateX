@@ -16,7 +16,7 @@ public class Helper implements ICommand {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         List<String> list = List.of(
-                "/broadcast message",
+                "/broadcast [message]",
                 "/cdk create [item](需要空时填入none) [money](需要空时填入none) [cdk](兑换码) [expire](过期时间/s)",
                 "/cdk remove [cdk](兑换码)",
                 "/distance (两次使用，记录两点坐标)",
@@ -28,7 +28,7 @@ public class Helper implements ICommand {
                 "/privateMsg [targetPlayer] [message]",
                 "/scheduledReboot time [if-broadcast]"
         );
-        list.forEach(string ->MessageSender.sendMessage(new MessageToSingle(string,commandSender)));
+        list.forEach(string -> MessageSender.send(new MessageToSingle(string, commandSender)));
         return true;
     }
 

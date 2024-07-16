@@ -25,12 +25,12 @@ public class Distance implements ICommand {
             if (recordedLocation.get(player.getName()) != null) {
                 Location currentLocation = player.getLocation().toBlockLocation();
                 double distance = currentLocation.distance(recordedLocation.get(player.getName()));
-                MessageSender.sendMessage(new MessageToSingle(Double.toString(distance), player));
+                MessageSender.send(new MessageToSingle(Double.toString(distance), player));
                 recordedLocation.remove(player.getName());
                 return true;
             }
             recordedLocation.put(player.getName(), player.getLocation().toBlockLocation());
-            MessageSender.sendMessage(new MessageToSingle("再次输入以计算两点位置(以玩家所处坐标取整为准)", player));
+            MessageSender.send(new MessageToSingle("再次输入以计算两点位置(以玩家所处坐标取整为准)", player));
         }
         return false;
     }

@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.config;
+package com.thesilentnights.delicatex.utils.config;
 
 import com.thesilentnights.delicatex.DelicateX;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Config {
@@ -23,6 +24,14 @@ public class Config {
 
     public void setBoolean(String key, boolean value) {
         config.set(key, value);
+    }
+
+    public void setList(String key, List value) {
+        config.set(key, value);
+    }
+
+    public void setString(String key, String val) {
+        config.set(key, val);
     }
 
     public static void saveConfigs() {

@@ -30,12 +30,12 @@ public class ChunkLoaderCommand implements ICommand {
             z = Integer.parseInt(strings[3]);
             ifGenerate = Boolean.parseBoolean(strings[4]);
         } catch (NumberFormatException e) {
-            MessageSender.sendMessage(new MessageToSingle("坐标错误", commandSender));
+            MessageSender.send(new MessageToSingle("坐标错误", commandSender));
             return true;
         }
         World world = DelicateX.getInstance().getServer().getWorld(strings[1]);
         if (world == null){
-            MessageSender.sendMessage(new MessageToSingle("世界不存在",commandSender));
+            MessageSender.send(new MessageToSingle("世界不存在",commandSender));
             return true;
         }
         switch (strings[0]) {
@@ -46,7 +46,7 @@ public class ChunkLoaderCommand implements ICommand {
                 ChunkLoader.unloadChunk(world, x, z);
             }
             default -> {
-                MessageSender.sendMessage(new MessageToSingle("该操作不存在",commandSender));
+                MessageSender.send(new MessageToSingle("该操作不存在",commandSender));
             }
         }
         return true;

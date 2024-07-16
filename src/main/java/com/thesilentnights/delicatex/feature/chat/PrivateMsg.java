@@ -21,14 +21,14 @@ public class PrivateMsg implements ICommand {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if (strings.length!= 2){
-            MessageSender.sendMessage(new MessageToSingle("参数错误",commandSender));
+            MessageSender.send(new MessageToSingle("参数错误",commandSender));
             return true;
         }
         Player player = DelicateX.getInstance().getServer().getPlayer(strings[0]);
         if (player != null){
-                MessageSender.sendMessage(new PrivateChatMessage(player,commandSender,strings[1]));
+                MessageSender.send(new PrivateChatMessage(player,commandSender,strings[1]));
             }else{
-                MessageSender.sendMessage(new MessageToSingle("玩家不在线或不存在",commandSender));
+                MessageSender.send(new MessageToSingle("玩家不在线或不存在",commandSender));
             }
         return true;
     }

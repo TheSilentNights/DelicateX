@@ -20,7 +20,7 @@ public class CDKRepo {
         if (cdkModel != null) {
             cdkModel.exchange(player);
         }else {
-            MessageSender.sendMessage(new MessageToSingle("错误的cdk",player));
+            MessageSender.send(new MessageToSingle("错误的cdk",player));
         }
     }
 

@@ -31,11 +31,11 @@ public class IpLocation implements ICommand {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         Player player = DelicateX.getInstance().getServer().getPlayer(strings[0]);
         if (player == null) {
-            MessageSender.sendMessage(new MessageToSingle("该玩家不存在", commandSender));
+            MessageSender.send(new MessageToSingle("该玩家不存在", commandSender));
             return true;
         }
         if (strings[0].equals("ip")) {
-            MessageSender.sendMessage(new MessageToSingle(player.getAddress().getHostString(), commandSender));
+            MessageSender.send(new MessageToSingle(player.getAddress().getHostString(), commandSender));
             return true;
         }
         IpLocationRunnable ipLocationRunnable = new IpLocationRunnable(player,commandSender,ipLocationRequestLimit);
@@ -93,18 +93,18 @@ class IpLocationRunnable implements Runnable {
         try {
             String response = new RequestSender("ip-api.com", "json", player.getAddress().getHostString() + "?fields=status,country,city,query", ipLocationRequestLimit).sendGet();
             if (response == null) {
-                MessageSender.sendMessage(new MessageToSingle("请求过于频繁，请1分钟后再试", commandSender));
+                MessageSender.send(new MessageToSingle("请求过于频繁，请1分钟后再试", commandSender));
                 return;
             }
 
             JSONObject jsonObject = JSONObject.parseObject(response);
 
             if (jsonObject.getString("status").equals("fail")) {
-                MessageSender.sendMessage(new MessageToSingle("请求失败", commandSender));
+                MessageSender.send(new MessageToSingle("请求失败", commandSender));
                 return;
             }
 
-            MessageSender.sendMessage(new MessageToSingle(jsonObject.getString("country"), commandSender));
+            MessageSender.send(new MessageToSingle(jsonObject.getString("country"), commandSender));
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -20,7 +20,7 @@ public class ForceHat implements ICommand {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if (commandSender instanceof Player sender){
             if (sender.getInventory().getItemInMainHand().getType().isAir()){
-                MessageSender.sendMessage(new MessageToSingle("你必须拿着物品",sender));
+                MessageSender.send(new MessageToSingle("你必须拿着物品",sender));
                 return false;
             }
 
