@@ -31,11 +31,14 @@ public class ChunkLoaderCommand implements DelicateCommand {
             MessageSender.send(new MessageToSingle("坐标错误", commandSender));
             return true;
         }
+
         World world = DelicateX.getInstance().getServer().getWorld(strings[1]);
+
         if (world == null) {
             MessageSender.send(new MessageToSingle("世界不存在", commandSender));
             return true;
         }
+
         switch (strings[0]) {
             case "load" -> {
                 ChunkLoader.loadChunk(world, x, z, ifGenerate);

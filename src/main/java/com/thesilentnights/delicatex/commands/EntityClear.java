@@ -51,6 +51,7 @@ public class EntityClear implements DelicateCommand {
                     MessageSender.send(new MessageToSingle("删除了:" + entity.getType().getKey(), sender));
                 }
             });
+
             return true;
         }
         return true;
