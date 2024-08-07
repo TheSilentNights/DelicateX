@@ -50,6 +50,7 @@ public class CDK implements DelicateCommand {
                     //返回值可能为空
                     itemStacks = Arrays.stream(player.getInventory().getContents()).filter(itemStack -> itemStack != null).toList();
                 }
+
                 //money
                 if (!strings[2].equals("none")) {
                     try {
@@ -71,17 +72,19 @@ public class CDK implements DelicateCommand {
                 //生成
                 CDKModel cdkModel = new CDKModel(strings[3]);
 
-
                 if (itemStacks != null && !itemStacks.isEmpty()) {
                     cdkModel.setItemGive(itemStacks);
                 }
                 cdkModel.setMoneyGive(moneyVal);
                 cdkModel.setExpire(expire);
+                cdkModel.startExpire();
                 CDKRepo.createCDK(strings[3], cdkModel);
 
 
             } else {
-                CDKRepo.exchange(strings[0], player);
+                if (!CDKRepo.exchange(strings[0], player)) {
+                    MessageSender.send(new MessageToSingle("该cdk不存在或已过期", player));
+                }
             }
         }
         return true;

@@ -1,7 +1,7 @@
 package com.thesilentnights.delicatex.utils.cdk;
 
 import com.thesilentnights.delicatex.DelicateX;
-import com.thesilentnights.delicatex.repo.VaultEssApi;
+import com.thesilentnights.delicatex.api.VaultEssApi;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import com.thesilentnights.delicatex.utils.task.tick.TickTimer;
@@ -16,7 +16,8 @@ public class CDKModel extends TickTimer {
     private List<ItemStack> itemStacks;
     private int money;
     private final List<String> gained = new ArrayList<>();
-    private boolean expire = false;
+    private Long last;
+    private boolean expired = false;
 
     public CDKModel(String key) {
         this.key = key;
@@ -35,11 +36,12 @@ public class CDKModel extends TickTimer {
             MessageSender.send(new MessageToSingle("你已经领取过了哦", player));
             return;
         }
+
         if (!itemStacks.isEmpty()) {
-            for (ItemStack itemStack : itemStacks) {
-                player.getInventory().addItem(itemStack);
-            }
+            ItemStack[] array = itemStacks.toArray(new ItemStack[0]);
+            player.getInventory().addItem(array);
         }
+
         //校验Vault API的加载
         if (DelicateX.getInstance().getServer().getPluginManager().isPluginEnabled("Vault")) {
             VaultEssApi.essentialsApi.depositPlayer(player, money);
@@ -52,15 +54,19 @@ public class CDKModel extends TickTimer {
         if (time == -1) {
             return;
         }
-        this.setLaterStart(time);
+        last = time;
     }
 
     public boolean ifExpired() {
-        return expire;
+        return expired;
+    }
+
+    public void startExpire() {
+        this.setLaterStart(last);
     }
 
     @Override
     public void run() {
-        this.expire = true;
+        this.expired = true;
     }
 }

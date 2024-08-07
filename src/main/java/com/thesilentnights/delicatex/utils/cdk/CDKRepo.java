@@ -1,7 +1,5 @@
 package com.thesilentnights.delicatex.utils.cdk;
 
-import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
-import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -15,15 +13,13 @@ public class CDKRepo {
         CDKs.put(key, target);
     }
 
-    public static void exchange(String key, Player player) {
+    public static boolean exchange(String key, Player player) {
         CDKModel cdkModel = CDKs.get(key);
-        if (cdkModel == null) {
-            MessageSender.send(new MessageToSingle("错误的cdk", player));
-        } else if (cdkModel.ifExpired()) {
-            MessageSender.send(new MessageToSingle("该cdk已过期", player));
-        } else {
+        //非空且无过期
+        if (cdkModel != null && !cdkModel.ifExpired()) {
             cdkModel.exchange(player);
         }
+        return false;
     }
 
     public static void remove(String key) {
