@@ -12,7 +12,6 @@ public final class DelicateX extends JavaPlugin {
 
     @Override
     public void onEnable() {
-
         //init config
         if (!getDataFolder().exists()) {
             saveDefaultConfig();
@@ -23,7 +22,6 @@ public final class DelicateX extends JavaPlugin {
 
         //reg command
         ModuleLoader.registerCommands(this);
-
         //reg eventsListener
 
         getServer().getPluginManager().registerEvents(new PlayerChatListener(), this);

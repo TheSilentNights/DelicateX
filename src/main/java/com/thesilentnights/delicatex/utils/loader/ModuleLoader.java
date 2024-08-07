@@ -9,10 +9,9 @@ import java.util.List;
 import java.util.Objects;
 
 public class ModuleLoader {
-    private static final List<DelicateCommand> modules = new ArrayList<>();
 
-    static { //register module
-        List<DelicateCommand> needRegister = new ArrayList<>(List.of(
+    public static void registerCommands(JavaPlugin plugin) {
+        List<DelicateCommand> modules = new ArrayList<>(List.of(
                 new CDK(),
                 new Broadcast(),
                 new ChunkLoaderCommand(),
@@ -29,16 +28,9 @@ public class ModuleLoader {
                 new Fix(),
                 new ForceExecute()
         ));
-
         if (Config.getConfig("config").getBoolean("if-enable-private_message")) {
-            needRegister.add(new PrivateMsg());
+            modules.add(new PrivateMsg());
         }
-
-
-        modules.addAll(needRegister);
-    }
-
-    public static void registerCommands(JavaPlugin plugin) {
         modules.forEach(command -> {
             Objects.requireNonNull(plugin.getCommand(command.getClass().getSimpleName())).setExecutor(command);
         });
