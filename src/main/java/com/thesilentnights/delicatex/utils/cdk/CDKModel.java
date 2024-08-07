@@ -50,6 +50,7 @@ public class CDKModel extends TickTimer {
         gained.add(player.getName());
     }
 
+    //设置过期时间
     public void setExpire(Long time) {
         if (time == -1) {
             return;
@@ -66,6 +67,7 @@ public class CDKModel extends TickTimer {
     }
 
     @Override
+    @Deprecated
     public void run() {
         this.expired = true;
     }

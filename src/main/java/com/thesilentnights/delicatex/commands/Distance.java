@@ -18,14 +18,16 @@ public class Distance implements DelicateCommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        if (commandSender instanceof Player) {
-            Player player = (Player) commandSender;
+        if (commandSender instanceof Player player) {
 
             if (recordedLocation.get(player.getName()) != null) {
                 Location currentLocation = player.getLocation().toBlockLocation();
-                double distance = currentLocation.distance(recordedLocation.get(player.getName()));
 
-                MessageSender.send(new MessageToSingle(Double.toString(distance), player));
+                MessageSender.send(new MessageToSingle(
+                        Double.toString(currentLocation.distance(recordedLocation.get(player.getName()))),
+                        player
+                ));
+
                 recordedLocation.remove(player.getName());
                 return true;
             }
