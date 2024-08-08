@@ -19,8 +19,7 @@ public class EntityCounter implements DelicateCommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        if (commandSender instanceof Player) {
-            Player sender = (Player) commandSender;
+        if (commandSender instanceof Player sender) {
             if (strings.length != 3 && strings.length != 4) {
                 MessageSender.send(new MessageToSingle("输入坐标范围错误", sender));
                 return false;
@@ -37,9 +36,6 @@ public class EntityCounter implements DelicateCommand {
                 nearbyEntities = blockLocation.getNearbyEntities(x, y, z);
             } catch (NumberFormatException e) {
                 MessageSender.send(new MessageToSingle("坐标格式错误", sender));
-            }
-
-            if (nearbyEntities == null) {
                 return false;
             }
 
