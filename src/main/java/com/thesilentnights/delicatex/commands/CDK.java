@@ -29,30 +29,30 @@ public class CDK implements DelicateCommand {
             MessageSender.send(new MessageToSingle("&4请注意! vault未加载 部分功能不会生效", commandSender));
         }
 
-        if (strings[0].equals("remove") && commandSender.isOp()) {
+        if ("remove".equals(strings[0]) && commandSender.isOp()) {
             CDKRepo.remove(strings[1]);
             return true;
         }
 
-        if (strings[0].equals("list") && commandSender.isOp()) {
+        if ("list".equals(strings[0]) && commandSender.isOp()) {
             CDKRepo.ListKey().forEach(key -> MessageSender.send(new MessageToSingle(key, commandSender)));
             return true;
         }
 
         if (commandSender instanceof Player player) {
-            if (strings[0].equals("create") && commandSender.isOp()) {
+            if ("create".equals(strings[0]) && commandSender.isOp()) {
                 List<ItemStack> itemStacks = new ArrayList<>();
                 int moneyVal = 0;
                 long expire = 0;
 
                 //item
-                if (!strings[1].equals("none")) {
+                if (!"none".equals(strings[1])) {
                     //返回值可能为空
                     itemStacks = Arrays.stream(player.getInventory().getContents()).filter(itemStack -> itemStack != null).toList();
                 }
 
                 //money
-                if (!strings[2].equals("none")) {
+                if (!"none".equals(strings[2])) {
                     try {
                         moneyVal = Integer.parseInt(strings[2]);
                     } catch (Exception e) {

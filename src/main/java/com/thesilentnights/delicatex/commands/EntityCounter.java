@@ -26,7 +26,7 @@ public class EntityCounter implements DelicateCommand {
             }
 
             Location blockLocation = sender.getLocation().toBlockLocation();
-            Collection<Entity> nearbyEntities = null;
+            Collection<Entity> nearbyEntities;
 
             try {
                 double x, y, z;
@@ -41,11 +41,12 @@ public class EntityCounter implements DelicateCommand {
 
             Map<String, List<Entity>> map = nearbyEntities.stream()
                     .collect(Collectors.groupingBy(entity -> entity.getType().getKey().getKey()));
-
+            //没有target
             if (strings.length == 3) {
                 map.forEach((k, v) -> {
                     MessageSender.send(new MessageToSingle(k + " : " + v.size(), sender));
                 });
+
             } else {
                 MessageSender.send(new MessageToSingle(map.get(strings[3]).toString(), sender));
             }
@@ -57,6 +58,6 @@ public class EntityCounter implements DelicateCommand {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        return List.of("1 1 1");
+        return List.of("[x] [y] [z]");
     }
 }
