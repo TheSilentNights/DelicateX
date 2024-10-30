@@ -23,7 +23,7 @@ public class IpLocation implements DelicateCommand {
 
     public IpLocation() {
         this.ipLocationRequestLimit = new IpLocationRequestLimit();
-        ipLocationRequestLimit.setTimerAsynchronouslyStart(60, 60);
+        ipLocationRequestLimit.setTimerAsynchronouslyStart(0, 60);
     }
 
     @Override

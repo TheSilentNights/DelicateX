@@ -34,7 +34,7 @@ public class EntityClear implements DelicateCommand {
             Location blockLocation = sender.getLocation().toBlockLocation();
             Collection<Entity> nearbyEntities = blockLocation.getNearbyEntities(x, y, z);
 
-            if (strings[3].equals("player")) {
+            if ("player".equals(strings[3])) {
                 nearbyEntities.forEach(entity -> {
                     if (entity.getType().getKey().getKey().equals(strings[3])) {
                         Player player = (Player) entity;
