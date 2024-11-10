@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.utils.request;
+package com.thesilentnights.delicatex.impl.request;
 
 
 public interface RequestLimit {

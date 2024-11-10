@@ -21,20 +21,19 @@ public final class DelicateX extends JavaPlugin {
         instance = this;
 
         //reg command
-        ModuleLoader.registerCommands(this);
+        ModuleLoader.registerDefault();
         //reg eventsListener
 
-        getServer().getPluginManager().registerEvents(new PlayerChatListener(), this);
-        getServer().getPluginManager().registerEvents(new PlayerEffectListener(), this);
+
         //load class
-        com.thesilentnights.delicatex.utils.chunk.ChunkLoader.init();
+        com.thesilentnights.delicatex.impl.chunk.ChunkLoader.init();
 
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        com.thesilentnights.delicatex.utils.chunk.ChunkLoader.unloadAllChunks();
+        com.thesilentnights.delicatex.impl.chunk.ChunkLoader.unloadAllChunks();
         Config.saveConfigs();
     }
 

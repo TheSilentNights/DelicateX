@@ -20,6 +20,8 @@ buildNumber.properties
 #Idea default ignored files
 /target/
 /shelf/
+
+/.idea/uiDesigner.xml
 /.idea/workspace.xml
 .idea/inspectionProfiles
 .idea/dictionaries

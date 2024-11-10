@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.utils.task.tick;
+package com.thesilentnights.delicatex.impl.tick;
 
 import com.thesilentnights.delicatex.DelicateX;
 import org.bukkit.scheduler.BukkitRunnable;

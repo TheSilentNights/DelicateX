@@ -1,7 +1,7 @@
 package com.thesilentnights.delicatex.commands;
 
 import com.thesilentnights.delicatex.DelicateX;
-import com.thesilentnights.delicatex.utils.chunk.ChunkLoader;
+import com.thesilentnights.delicatex.impl.chunk.ChunkLoader;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import org.bukkit.World;

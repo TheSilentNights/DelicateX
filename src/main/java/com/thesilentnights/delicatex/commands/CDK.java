@@ -1,8 +1,8 @@
 package com.thesilentnights.delicatex.commands;
 
 import com.thesilentnights.delicatex.DelicateX;
-import com.thesilentnights.delicatex.utils.cdk.CDKModel;
-import com.thesilentnights.delicatex.utils.cdk.CDKRepo;
+import com.thesilentnights.delicatex.impl.cdk.CDKModel;
+import com.thesilentnights.delicatex.impl.cdk.CDKRepo;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
 import org.bukkit.command.Command;

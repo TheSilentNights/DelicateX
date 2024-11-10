@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.utils.request;
+package com.thesilentnights.delicatex.impl.request;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.utils.chunk;
+package com.thesilentnights.delicatex.impl.chunk;
 
 import org.bukkit.Chunk;
 import org.bukkit.World;

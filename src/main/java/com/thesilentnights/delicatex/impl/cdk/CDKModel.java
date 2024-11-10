@@ -1,10 +1,10 @@
-package com.thesilentnights.delicatex.utils.cdk;
+package com.thesilentnights.delicatex.impl.cdk;
 
 import com.thesilentnights.delicatex.DelicateX;
 import com.thesilentnights.delicatex.api.VaultEssApi;
 import com.thesilentnights.delicatex.utils.messageSender.MessageSender;
 import com.thesilentnights.delicatex.utils.messageSender.messageImp.MessageToSingle;
-import com.thesilentnights.delicatex.utils.task.tick.TickTimer;
+import com.thesilentnights.delicatex.impl.tick.TickTimer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 

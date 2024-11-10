@@ -1,4 +1,4 @@
-package com.thesilentnights.delicatex.utils.cdk;
+package com.thesilentnights.delicatex.impl.cdk;
 
 import org.bukkit.entity.Player;
 
